@@ -1,4 +1,5 @@
 /foxpakpak/nbproject/private
+/foxpakpak/nbproject/build-impl.xml
 /foxpakpak/nbproject/genfiles.properties
 /foxpakpak/build/
-*.xml
+/foxpakpak/*.xml
