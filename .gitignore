@@ -1,3 +1,4 @@
 /foxpakpak/nbproject/
 /foxpakpak/build/
-/foxpakpak/build.xml
+/foxpakpak/build.xml 
+*.xml
