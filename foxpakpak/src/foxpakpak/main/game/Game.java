@@ -7,6 +7,7 @@ package foxpakpak.main.game;
 
 import static foxpakpak.main.game.Game.Menus.*;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JOptionPane;
@@ -65,6 +66,10 @@ public class Game extends iut.Jeu {
             case PRINCIPAL :
                 int xCoord;
                 int yCoord;
+                
+                /* On affiche le curseur */
+                Cursor cursor=Cursor.getDefaultCursor();
+                this.setCursor(cursor);
                 
                 /* Afficher background */
                 g.setColor(Color.BLACK);
