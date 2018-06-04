@@ -5,7 +5,7 @@
  */
 package foxpakpak.main.game;
 
-import static foxpakpak.main.game.Game.Menus.*;
+import static foxpakpak.main.game.Menus.*;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -13,6 +13,8 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,26 +23,8 @@ import javax.swing.JOptionPane;
  */
 public class Game extends iut.Jeu implements MouseListener, MouseMotionListener {
     
-    /**
-     *
-     */
-    public static Menus menu;
-    
-    /**
-     * Liste des différents menus
-     */
-    public enum Menus {
-
-        /**
-         * Menu principal
-         */
-        PRINCIPAL,
-        
-        /**
-         * Le jeu
-         */
-        GAME
-    }
+    private Menus menu; // Menu a afficher
+    private int action; // Action a effectuer dans le menu principal
     
     /**
      * Constructeur du jeu
@@ -50,9 +34,9 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     public Game(int width, int height, String title) {
         super(width, height, title);
-        this.setLocation(5, 5); //On centre l'interface graphique
-        this.ajouteEcouteurSouris(this); //On ecoute la souris
-        Game.menu = PRINCIPAL; //Menu par defaut = menu principal
+        this.setLocation(5, 5); // On centre l'interface graphique
+        this.ajouteEcouteurSouris(this); // On ecoute la souris
+        this.menu = PRINCIPAL; // Menu par defaut = menu principal
     }
     
     /**
@@ -93,10 +77,15 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 xCoord = largeur()/2 - 200;
                 yCoord = hauteur()/2 - 100;
                 g.setColor(Color.DARK_GRAY);
-                g.draw3DRect(xCoord, yCoord, 400, 100, true);
-                g.fill3DRect(xCoord+1, yCoord+1, 400-1, 100-1, true);
+                if (action == 1) {
+                    g.draw3DRect(xCoord, yCoord, 400, 100, false);
+                    g.fill3DRect(xCoord, yCoord, 400, 100, false);
+                } else {
+                    g.draw3DRect(xCoord, yCoord, 400, 100, true);
+                    g.fill3DRect(xCoord, yCoord, 400, 100, true);
+                }
                 /* --- */
-                g.setColor(new Color(0,0,75,255));
+                g.setColor(new Color(0,0,100,255));
                 g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
                 xCoord = largeur()/2 - 200 + 30;
                 yCoord = hauteur()/2 - 100 + 65;
@@ -106,19 +95,50 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 xCoord = largeur()/2 - 200;
                 yCoord = hauteur()/2 + 50;
                 g.setColor(Color.DARK_GRAY);
-                g.draw3DRect(xCoord, yCoord, 400, 100, true);
-                g.fill3DRect(xCoord+1, yCoord+1, 400-1, 100-1, true);
+                if (action == 2) {
+                    g.draw3DRect(xCoord, yCoord, 400, 100, false);
+                    g.fill3DRect(xCoord, yCoord, 400, 100, false);
+                } else {
+                    g.draw3DRect(xCoord, yCoord, 400, 100, true);
+                    g.fill3DRect(xCoord, yCoord, 400, 100, true);
+                }
                 /* --- */
-                g.setColor(new Color(0,0,75,255));
+                g.setColor(new Color(100,0,0,255));
                 g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
                 xCoord = largeur()/2 - 200 + 120;
                 yCoord = hauteur()/2 + 50 + 65;
                 g.drawString("Quitter",xCoord,yCoord);
+                
+                /* Lors d'un clic sur le boutton 01 */
+                if (action == 1) {
+                    action = 10; // Permet d'afficher le nouvel etat du bouton
+                } else if (action == 10) {
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    menu = GAME; //Nouvelle partie : on affiche le jeu
+                }
+                
+                /* Lors d'un clic sur le boutton 02 */
+                if (action == 2) {
+                    action = 20; // Permet d'afficher le nouvel etat du bouton
+                } else if (action == 20) {
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    System.exit(0); //Quitter : on quitte le jeu
+                }
                 break;
             case GAME :
                 /* Afficher BACKGROUND */
                 g.setColor(Color.BLACK);
                 g.fillRect(0, 0, largeur(), hauteur());
+                
+                //AFFICHER LEVEL
                 break;
             default :
                 System.out.println("Type de menu non implémenté");
@@ -139,9 +159,9 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 boolean onButton02 = e.getX() > largeur()/2 - 200 && e.getX() < largeur()/2 - 200 + 400 &&
                                     e.getY() > hauteur()/2 + 50 && e.getY() < hauteur()/2 + 50 + 100;
                 if (onButton01) {
-                    menu = GAME; //Nouvelle partie : on affiche le jeu
+                    action = 1;
                 } else if (onButton02) {
-                    System.exit(0); //Quitter : on quitte le jeu
+                    action = 2;
                 }
                 break;
             case MouseEvent.BUTTON2 :
