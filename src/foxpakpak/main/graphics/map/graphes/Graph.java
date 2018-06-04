@@ -6,7 +6,7 @@
 package foxpakpak.main.graphics.map.graphes;
 
 /**
- *
+ * Graphe
  * @author jp032952
  */
 public abstract class Graph {
