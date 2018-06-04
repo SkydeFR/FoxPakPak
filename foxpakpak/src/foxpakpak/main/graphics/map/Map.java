@@ -5,10 +5,19 @@
  */
 package foxpakpak.main.graphics.map;
 
+import java.util.ArrayList;
+import foxpakpak.main.graphics.entites.consumables.Consumable;
+import foxpakpak.main.graphics.map.graphes.Graph;
+
 /**
  * Carte
  * @author jp032952
  */
 public class Map {
+    
+    private ArrayList<Consumable> consumables;
+    private ArrayList<Character> characters;
+    private Graph graphe;
+    
     
 }

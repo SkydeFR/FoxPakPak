@@ -7,8 +7,12 @@ package foxpakpak.main.graphics.map.cases;
 
 /**
  * Mur
- * @author jp032952
+ * @author Ange Pagel
  */
 public class Wall extends Case {
+    
+    public Wall(int x, int y) {
+        super(x, y, TypeCase.WALL);
+    }
     
 }

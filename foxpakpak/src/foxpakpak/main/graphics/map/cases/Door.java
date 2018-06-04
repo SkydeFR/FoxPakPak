@@ -7,8 +7,16 @@ package foxpakpak.main.graphics.map.cases;
 
 /**
  * Porte pour cage a fantomes
- * @author jp032952
+ * @author Ange Pagel
  */
 public class Door extends Case {
+    
+    public Door(int x, int y) {
+        super(x, y, TypeCase.DOOR);
+    }
+    
+    public void openDoor(boolean bool) {
+        setFranchissable(bool);
+    }
     
 }
