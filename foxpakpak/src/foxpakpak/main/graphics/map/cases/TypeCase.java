@@ -7,7 +7,7 @@ package foxpakpak.main.graphics.map.cases;
 
 /**
  * Types de case
- * @author jp032952
+ * @author Ange Pagel
  */
 public enum TypeCase {
 

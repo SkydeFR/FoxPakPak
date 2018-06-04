@@ -7,8 +7,12 @@ package foxpakpak.main.graphics.map.cases;
 
 /**
  * Teleporteur
- * @author jp032952
+ * @author Ange Pagel
  */
 public class Teleporter extends Case {
+    
+    public Teleporter(int x, int y) {
+        super(x, y, TypeCase.TELEPORTER);
+    }
     
 }

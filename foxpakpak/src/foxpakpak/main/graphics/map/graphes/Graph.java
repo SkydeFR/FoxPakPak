@@ -11,4 +11,5 @@ package foxpakpak.main.graphics.map.graphes;
  */
 public abstract class Graph {
     
+    
 }
