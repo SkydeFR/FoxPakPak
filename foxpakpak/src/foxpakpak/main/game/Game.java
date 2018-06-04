@@ -5,7 +5,7 @@
  */
 package foxpakpak.main.game;
 
-import java.awt.Color;
+import static foxpakpak.main.game.menu.menu.Menus.*;
 import java.awt.Graphics;
 
 /**
@@ -13,7 +13,9 @@ import java.awt.Graphics;
  * @author jp032952
  */
 public class Game extends iut.Jeu {
-        
+    
+    
+    
     /**
      * Constructeur du jeu
      * @param largeur : la largeur du jeu
@@ -39,11 +41,7 @@ public class Game extends iut.Jeu {
      */
     @Override
     protected void dessinerArrierePlan(Graphics g) {
-        Color black = new Color(0, 0, 0);
-        Color red = new Color(255, 0, 0);
-        
-        g.setColor(black);
-        g.fillRect(0, 0, largeur(), hauteur());
+        Menu myMenu = new Menu(width*scale, height*scale, title, PRINCIPAL);
     }
 
     /**

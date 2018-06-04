@@ -6,6 +6,7 @@
 package foxpakpak.main;
 
 import foxpakpak.main.game.Game;
+import foxpakpak.main.graphics.map.Map;
 
 /**
  *
@@ -21,6 +22,9 @@ public class FoxPakPak {
         int width = 720;
         int height = 400;
         int scale = 2;        
+        
+        Map laMap = new Map();
+        laMap.generateMap("C:\\Users\\ap594025\\Downloads\\lev1.txt");
         
         Game myFoxPakPak = new Game(width*scale, height*scale, title);
         myFoxPakPak.jouer();

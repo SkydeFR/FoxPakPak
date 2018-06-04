@@ -7,7 +7,16 @@ package foxpakpak.main.graphics.map;
 
 import java.util.ArrayList;
 import foxpakpak.main.graphics.entites.consumables.Consumable;
+import foxpakpak.main.graphics.map.cases.Door;
+import foxpakpak.main.graphics.map.cases.Floor;
+import foxpakpak.main.graphics.map.cases.TypeCase;
+import foxpakpak.main.graphics.map.cases.Wall;
 import foxpakpak.main.graphics.map.graphes.Graph;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 
 /**
  * Carte
@@ -17,7 +26,47 @@ public class Map {
     
     private ArrayList<Consumable> consumables;
     private ArrayList<Character> characters;
-    private Graph graphe;
+    
+    
+    public void generateMap(String filePath) {
+        try {
+            Scanner file = new Scanner(new File(filePath));  
+            
+            String letter;
+            int x=0;
+            int y=0;
+            
+            
+            /* NON FONCTIONNEL ! */
+            
+            while (file.hasNext()) {
+               letter = file.next();
+               
+               switch (letter) {
+                   
+                   case "W":
+                       new Wall(x, y);
+                       break;   
+                       
+                   case "F":
+                       new Floor(x, y);
+                       break;
+                       
+                   case "D" :
+                       new Door(x, y);
+                       break;
+                                              
+               }
+               System.out.println(letter);
+               
+            }
+            
+        } catch (FileNotFoundException e) {
+            System.out.println("Aucun fichier " + filePath + " n'a été trouvé");
+            e.printStackTrace();
+        }
+        
+    }
     
     
 }

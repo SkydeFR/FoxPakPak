@@ -14,7 +14,7 @@ import iut.ObjetTouchable;
  * @author jp032952
  */
 public abstract class Character extends ObjetTouchable {
-
+    
     /**
      * Construction d'un personnage
      * @param g : l'interface graphique
