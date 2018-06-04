@@ -208,7 +208,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     }
     
     /**
-     * Fonction appelle lors d'un pressement d'un bouton de la souris
+     * Fonction appellee lors d'un pressement d'un bouton de la souris
      * @param e : l'evenement souris
      */
     @Override
@@ -217,7 +217,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     }
     
     /**
-     * Fonction appelle lors d'un relachement d'un bouton de la souris
+     * Fonction appellee lors d'un relachement d'un bouton de la souris
      * @param e : l'evenement souris
      */
     @Override
@@ -226,7 +226,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     }
     
     /**
-     * Fonction appelle lorsque la souris entre sur l'interface graphique
+     * Fonction appellee lorsque la souris entre sur l'interface graphique
      * @param e : l'evenement souris
      */
     @Override
@@ -235,7 +235,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     }
     
     /**
-     * Fonction appelle lorsque la souris quitte l'interface graphique
+     * Fonction appellee lorsque la souris quitte l'interface graphique
      * @param e : l'evenement souris
      */
     @Override
@@ -244,7 +244,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     }
     
     /**
-     * Fonction appelle lors d'un glisse-deposer de souris
+     * Fonction appellee lors d'un glisse-deposer de souris
      * @param e : l'evenement souris
      */
     @Override
@@ -253,7 +253,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     }
     
     /**
-     * Fonction appelle lors d'un mouvement de souris
+     * Fonction appellee lors d'un mouvement de souris
      * @param e : l'evenement souris
      */
     @Override
