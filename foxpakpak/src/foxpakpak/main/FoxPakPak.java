@@ -24,7 +24,7 @@ public class FoxPakPak {
         int scale = 2;        
         
         Map laMap = new Map();
-        laMap.generateMap("C:\\Users\\ap594025\\Downloads\\lev1.txt");
+        //laMap.generateMap("C:\\Users\\ap594025\\Downloads\\lev1.txt");
         
         Game myFoxPakPak = new Game(width*scale, height*scale, title);
         myFoxPakPak.jouer();

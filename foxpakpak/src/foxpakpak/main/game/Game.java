@@ -9,6 +9,7 @@ import static foxpakpak.main.game.Game.Menus.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import javax.swing.JOptionPane;
 
 /**
  * Jeu
@@ -43,7 +44,7 @@ public class Game extends iut.Jeu {
     public Game(int width, int height, String title) {
         super(width, height, title);
         this.setLocation(5, 5); //On centre l'interface graphique
-        this.menu = PRINCIPAL; //Menu par défaut = menu principal
+        Game.menu = PRINCIPAL; //Menu par défaut = menu principal
     }
 
     /**
@@ -59,23 +60,39 @@ public class Game extends iut.Jeu {
      * @param g : l'interface graphique
      */
     @Override
-    protected void dessinerArrierePlan(Graphics g) {
-        Color black = new Color(0, 0, 0);
-        Color red = new Color(255, 0, 0);
-        
+    protected void dessinerArrierePlan(Graphics g) {       
         switch (menu) {
             case PRINCIPAL :
+                int xCoord;
+                int yCoord;
+                
                 /* Afficher background */
-                g.setColor(black);
+                g.setColor(Color.BLACK);
                 g.fillRect(0, 0, largeur(), hauteur());
                 
                 /* Afficher texte */
-                g.setColor(red);
+                g.setColor(Color.ORANGE);
                 g.setFont(new Font("TimesRoman", Font.PLAIN, 100));
-                g.drawString("Hello World",200,200);
+                xCoord = largeur()/2 - 330;
+                yCoord = hauteur()/2 - 200;
+                g.drawString("TheFoxPakpak",xCoord,yCoord);
+                
+                /* Afficher boutton */
+                xCoord = largeur()/2 - 200;
+                yCoord = hauteur()/2 - 100;
+                g.setColor(Color.DARK_GRAY);
+                g.draw3DRect(xCoord, yCoord, 400, 100, true);
+                g.fill3DRect(xCoord+1, yCoord+1, 400-1, 100-1, true);
+                
+                /* Afficher boutton */
+                xCoord = largeur()/2 - 200;
+                yCoord = hauteur()/2 + 50;
+                g.setColor(Color.DARK_GRAY);
+                g.draw3DRect(xCoord, yCoord, 400, 100, true);
+                g.fill3DRect(xCoord+1, yCoord+1, 400-1, 100-1, true);
                 break;
             case GAME :
-                g.setColor(red);
+                g.setColor(Color.RED);
                 g.fillRect(0, 0, largeur(), hauteur());
             default :
                 System.out.println("Type de menu non implémenté");
@@ -87,7 +104,7 @@ public class Game extends iut.Jeu {
      */
     @Override
     protected void perdu() {
-        
+        JOptionPane.showMessageDialog(this, "Vous avez perdu");        
     }
 
     /**
@@ -95,7 +112,7 @@ public class Game extends iut.Jeu {
      */
     @Override
     protected void gagne() {
-        
+        JOptionPane.showMessageDialog(this, "Vous avez gagné");
     }
 
     /**
@@ -104,7 +121,7 @@ public class Game extends iut.Jeu {
      */
     @Override
     protected boolean aGagne() {
-        return true;
+        return false;
     }
 
     /**
@@ -113,7 +130,7 @@ public class Game extends iut.Jeu {
      */
     @Override
     protected boolean aPerdu() {
-        return true;
+       return false;
     }
     
 }
