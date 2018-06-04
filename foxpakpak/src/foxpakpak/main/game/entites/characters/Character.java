@@ -3,26 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.entites.consumables;
+package foxpakpak.main.game.entites.characters;
 
 import iut.Jeu;
 import iut.Objet;
 import iut.ObjetTouchable;
 
 /**
- * Consommable
+ * Personnage
  * @author jp032952
  */
-public abstract class Consumable extends ObjetTouchable {
+public abstract class Character extends ObjetTouchable {
     
     /**
-     * Construction d'un consommable
+     * Construction d'un personnage
      * @param g : l'interface graphique
-     * @param nom : le nom du consommable
-     * @param x : coordonnee x du consommable
-     * @param y : coordonnee y du consommable
+     * @param nom : le nom du personnage
+     * @param x : coordonnee x du personnage
+     * @param y : coordonnee y du personnage
      */
-    public Consumable(Jeu g, String nom, int x, int y) {
+    public Character(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
     }
     
@@ -36,8 +36,8 @@ public abstract class Consumable extends ObjetTouchable {
     }
     
     /**
-     * Renvoie le type du consommable
-     * @return : le type du consommable
+     * Renvoie le type du personnage
+     * @return : le type du personnage
      */
     @Override
     public String getTypeObjet() {
@@ -45,7 +45,7 @@ public abstract class Consumable extends ObjetTouchable {
     }
     
     /**
-     * Permet le deplacement du consommable
+     * Permet le deplacement du personnage
      * @param dt : le temps ecoule depuis le dernier deplacement
      */
     @Override

@@ -3,16 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.map.cases;
+package foxpakpak.main.game.map.graphes;
 
 /**
- * Teleporteur
- * @author Ange Pagel
+ * Graphe
+ * @author jp032952
  */
-public class Teleporter extends Case {
+public abstract class Graph {
     
-    public Teleporter(int x, int y) {
-        super(x, y, TypeCase.TELEPORTER);
-    }
     
 }

@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.map.cases;
+package foxpakpak.main.game.map.graphes;
 
 /**
- * Mur
- * @author Ange Pagel
+ *
+ * @author ap594025
  */
-public class Wall extends Case {
-    
-    public Wall(int x, int y) {
-        super(x, y, TypeCase.WALL);
-    }
+public class Vertex {
     
 }

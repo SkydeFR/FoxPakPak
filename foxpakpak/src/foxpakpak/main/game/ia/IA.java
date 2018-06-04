@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.map.graphes;
+package foxpakpak.main.game.ia;
 
 /**
- * Graphe
+ *
  * @author jp032952
  */
-public abstract class Graph {
-    
+public abstract class IA {
     
 }

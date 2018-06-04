@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.entites.consumables;
+package foxpakpak.main.game.entites.characters;
 
 import iut.Jeu;
 
 /**
- * Point
+ * Fantome
  * @author jp032952
  */
-public class Dot extends Consumable {
+public class Ghost extends Character {
     
     /**
-     * Construction d'un point
+     * Construction d'un fantome
      * @param g : l'interface graphique
-     * @param nom : le nom du point
-     * @param x : coordonnee x du point
-     * @param y : coordonnee y du point
+     * @param nom : le nom du fantome
+     * @param x : coordonnee x du fantome
+     * @param y : coordonnee y du fantome
      */
-    public Dot(Jeu g, String nom, int x, int y) {
+    public Ghost(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
     }
     

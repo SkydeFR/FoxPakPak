@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.map;
+package foxpakpak.main.game.map;
 
 import java.util.ArrayList;
-import foxpakpak.main.graphics.entites.consumables.Consumable;
-import foxpakpak.main.graphics.map.cases.Door;
-import foxpakpak.main.graphics.map.cases.Floor;
-import foxpakpak.main.graphics.map.cases.TypeCase;
-import foxpakpak.main.graphics.map.cases.Wall;
-import foxpakpak.main.graphics.map.graphes.Graph;
+import foxpakpak.main.game.entites.consumables.Consumable;
+import foxpakpak.main.game.map.cases.Door;
+import foxpakpak.main.game.map.cases.Floor;
+import foxpakpak.main.game.map.cases.TypeCase;
+import foxpakpak.main.game.map.cases.Wall;
+import foxpakpak.main.game.map.graphes.Graph;
 
 import java.io.File;
 import java.io.FileNotFoundException;

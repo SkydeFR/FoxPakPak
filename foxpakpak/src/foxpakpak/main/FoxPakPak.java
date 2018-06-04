@@ -6,7 +6,7 @@
 package foxpakpak.main;
 
 import foxpakpak.main.game.Game;
-import foxpakpak.main.graphics.map.Map;
+import foxpakpak.main.game.map.Map;
 
 /**
  *

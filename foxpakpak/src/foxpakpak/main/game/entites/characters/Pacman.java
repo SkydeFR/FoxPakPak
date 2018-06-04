@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.entites.consumables;
+package foxpakpak.main.game.entites.characters;
 
 import iut.Jeu;
 
 /**
- * Fruit
+ * Pacman
  * @author jp032952
  */
-public class Fruit extends Consumable {
+public class Pacman extends Character {
     
     /**
-     * Construction d'un fruit
+     * Construction d'un pacman
      * @param g : l'interface graphique
-     * @param nom : le nom du fruit
-     * @param x : coordonnee x du fruit
-     * @param y : coordonnee y du fruit
+     * @param nom : le nom du pacman
+     * @param x : coordonnee x du pacman
+     * @param y : coordonnee y du pacman
      */
-    public Fruit(Jeu g, String nom, int x, int y) {
+    public Pacman(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
     }
     
