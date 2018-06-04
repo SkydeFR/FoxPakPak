@@ -5,6 +5,7 @@
  */
 package foxpakpak.main.graphics.entites.characters;
 
+import foxpakpak.main.graphics.map.ia.IA;
 import iut.Jeu;
 
 /**
@@ -12,7 +13,8 @@ import iut.Jeu;
  * @author jp032952
  */
 public class Ghost extends Character {
-    
+    private String color;
+    private IA ia; 
     /**
      * Construction d'un fantome
      * @param g : l'interface graphique
@@ -20,8 +22,10 @@ public class Ghost extends Character {
      * @param x : coordonnee x du fantome
      * @param y : coordonnee y du fantome
      */
-    public Ghost(Jeu g, String nom, int x, int y) {
+    public Ghost(Jeu g, String nom, int x, int y, String _color, IA _ia) {
         super(g, nom, x, y);
+        this.color = _color; 
+        this.ia = _ia; 
     }
     
 }

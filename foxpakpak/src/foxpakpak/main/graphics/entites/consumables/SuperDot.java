@@ -8,21 +8,18 @@ package foxpakpak.main.graphics.entites.consumables;
 import iut.Jeu;
 
 /**
- * Point
- * @author jp032952
+ *
+ * @author ml809201
  */
-public class Dot extends Consumable {
-    private int score; 
-    private boolean estManger; 
-    
+public class SuperDot extends Consumable{
     /**
-     * Construction d'un point
+     * Construction d'un super point
      * @param g : l'interface graphique
      * @param nom : le nom du point
      * @param x : coordonnee x du point
      * @param y : coordonnee y du point
      */
-    public Dot(Jeu g, String nom, int x, int y) {
+    public SuperDot(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
     }
     
