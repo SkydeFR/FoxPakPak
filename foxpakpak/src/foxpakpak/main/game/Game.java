@@ -5,7 +5,9 @@
  */
 package foxpakpak.main.game;
 
-import static foxpakpak.main.game.menu.menu.Menus.*;
+import static foxpakpak.main.game.Game.Menus.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 /**
@@ -13,18 +15,35 @@ import java.awt.Graphics;
  * @author jp032952
  */
 public class Game extends iut.Jeu {
+      
+    public static Menus menu;
     
-    
+    /**
+     * Liste des différents menus
+     */
+    public enum Menus {
+
+        /**
+         * Menu principal
+         */
+        PRINCIPAL,
+        
+        /**
+         * Le jeu
+         */
+        GAME
+    }
     
     /**
      * Constructeur du jeu
-     * @param largeur : la largeur du jeu
-     * @param hauteur : la hauteur du jeu
+     * @param width : la largeur du jeu
+     * @param height : la hauteur du jeu
      * @param title : le titre du jeu
      */
-    public Game(int largeur, int hauteur, String title) {
-        super(largeur, hauteur, title);
+    public Game(int width, int height, String title) {
+        super(width, height, title);
         this.setLocation(5, 5); //On centre l'interface graphique
+        this.menu = PRINCIPAL; //Menu par défaut = menu principal
     }
 
     /**
@@ -41,7 +60,26 @@ public class Game extends iut.Jeu {
      */
     @Override
     protected void dessinerArrierePlan(Graphics g) {
-        Menu myMenu = new Menu(width*scale, height*scale, title, PRINCIPAL);
+        Color black = new Color(0, 0, 0);
+        Color red = new Color(255, 0, 0);
+        
+        switch (menu) {
+            case PRINCIPAL :
+                /* Afficher background */
+                g.setColor(black);
+                g.fillRect(0, 0, largeur(), hauteur());
+                
+                /* Afficher texte */
+                g.setColor(red);
+                g.setFont(new Font("TimesRoman", Font.PLAIN, 100));
+                g.drawString("Hello World",200,200);
+                break;
+            case GAME :
+                g.setColor(red);
+                g.fillRect(0, 0, largeur(), hauteur());
+            default :
+                System.out.println("Type de menu non implémenté");
+        }
     }
 
     /**
