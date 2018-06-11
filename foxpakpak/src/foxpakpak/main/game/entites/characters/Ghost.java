@@ -5,7 +5,7 @@
  */
 package foxpakpak.main.game.entites.characters;
 
-import foxpakpak.main.graphics.map.ia.IA;
+import foxpakpak.main.game.ia.IA;
 import iut.Jeu;
 
 /**
