@@ -5,10 +5,17 @@
  */
 package foxpakpak.main.game.ia;
 
+import iut.Jeu;
+import iut.ObjetTouchable;
+
 /**
  *
  * @author jp032952
  */
-public abstract class IA {
+public abstract class IA extends ObjetTouchable {
+    
+    public IA(Jeu g, String nom, int x, int y) {
+        super(g, nom, x, y);
+    }
     
 }

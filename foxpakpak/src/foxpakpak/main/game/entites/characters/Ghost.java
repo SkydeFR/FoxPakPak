@@ -13,7 +13,6 @@ import iut.Jeu;
  * @author jp032952
  */
 public class Ghost extends Character {
-    private String color;
     private IA ia; 
     private boolean mangeable; 
     private int valScore; 
@@ -24,11 +23,19 @@ public class Ghost extends Character {
      * @param nom : le nom du fantome
      * @param x : coordonnee x du fantome
      * @param y : coordonnee y du fantome
-     * @param _color : couleur du fantôme
+     * @param v : la vitesse
      * @param _ia : inteligence artificiel associé au fantôme
      */
     public Ghost(Jeu g, String nom, int x, int y, int v) {
         super(g, nom, x, y, v);
+        this.ia = null;
+        this.mangeable = false;
+        this.valScore = 1000;
+    }
+    
+    @Override
+    public String getTypeObjet() {
+        return "Ghost";
     }
     
 }

@@ -50,7 +50,8 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected void creeObjets() {
-        this.player = new Pacman(this,"pacman", 50, 50, 1);
+        this.player = new Pacman(this,"pacman", 0, 0, 1);
+        this.player.spawn();
         this.ghosts = new Ghost[4];
         this.ghosts[0] = new Ghost(this,"fantome_orange", 255, 100, 1);       
     }
@@ -193,7 +194,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected void perdu() {
-        JOptionPane.showMessageDialog(this, "Vous avez perdu");        
+        JOptionPane.showMessageDialog(this, "Vous avez perdu");
     }
 
     /**
@@ -219,7 +220,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected boolean aPerdu() {
-       return false;
+       return player.getLife()<=0;
     }
     
     /**

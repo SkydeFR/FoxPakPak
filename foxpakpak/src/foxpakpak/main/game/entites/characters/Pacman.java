@@ -6,6 +6,7 @@
 package foxpakpak.main.game.entites.characters;
 
 import iut.Jeu;
+import iut.Objet;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -14,16 +15,54 @@ import java.awt.event.KeyListener;
  * @author jp032952
  */
 public class Pacman extends Character implements KeyListener{
-
+    
+    private int score;
+    private int life;
+    private int xSpawn, ySpawn;
+    
     /**
      * Construction d'un pacman
      * @param g : l'interface graphique
      * @param nom : le nom du pacman
      * @param x : coordonnee x du pacman
      * @param y : coordonnee y du pacman
+     * @param v : la vitesse
      */
     public Pacman(Jeu g, String nom, int x, int y, int v) {
         super(g, nom, x, y, v);
+        this.score = 0;
+        this.life = 3;
+        this.xSpawn = 350;
+        this.ySpawn = 350;
+        System.out.println("Vie restantes : "+life);
+    }
+    
+    @Override
+    public void effetCollision(Objet o) {
+        if ("Ghost".equals(o.getTypeObjet())) {
+            perdreVie();
+        }
+    }
+    
+    public void perdreVie() {
+        if (life>0) {
+            life--;
+            spawn();
+        }
+        System.out.println("Vie restantes : "+life);
+    }
+    
+    public int getLife() {
+        return life;
+    }
+    
+    public void spawn() {
+        deplacerXY(xSpawn-milieuX(), ySpawn-milieuY());
+    }
+    
+    public void setSpawn(int x, int y) {
+        xSpawn = x;
+        ySpawn = y;
     }
     
     @Override
@@ -61,6 +100,11 @@ public class Pacman extends Character implements KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
         
+    }
+
+    @Override
+    public String getTypeObjet() {
+        return "Pacman";
     }
     
 }
