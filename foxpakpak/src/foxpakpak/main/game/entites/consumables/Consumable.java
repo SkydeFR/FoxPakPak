@@ -14,7 +14,7 @@ import iut.ObjetTouchable;
  * @author jp032952
  */
 public abstract class Consumable extends ObjetTouchable {
-    
+    private int valScore; 
     /**
      * Construction d'un consommable
      * @param g : l'interface graphique

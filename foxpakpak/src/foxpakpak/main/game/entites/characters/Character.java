@@ -14,7 +14,7 @@ import iut.ObjetTouchable;
  * @author jp032952
  */
 public abstract class Character extends ObjetTouchable {
-    
+    private int vitesse; 
     /**
      * Construction d'un personnage
      * @param g : l'interface graphique
@@ -22,8 +22,9 @@ public abstract class Character extends ObjetTouchable {
      * @param x : coordonnee x du personnage
      * @param y : coordonnee y du personnage
      */
-    public Character(Jeu g, String nom, int x, int y) {
+    public Character(Jeu g, String nom, int x, int y, int v) {
         super(g, nom, x, y);
+        this.vitesse = v; 
     }
     
     /**

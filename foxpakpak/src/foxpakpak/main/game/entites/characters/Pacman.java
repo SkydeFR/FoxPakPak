@@ -20,8 +20,8 @@ public class Pacman extends Character {
      * @param x : coordonnee x du pacman
      * @param y : coordonnee y du pacman
      */
-    public Pacman(Jeu g, String nom, int x, int y) {
-        super(g, nom, x, y);
+    public Pacman(Jeu g, String nom, int x, int y, int v) {
+        super(g, nom, x, y, v);
     }
     
 }

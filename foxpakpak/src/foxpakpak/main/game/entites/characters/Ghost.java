@@ -15,15 +15,19 @@ import iut.Jeu;
 public class Ghost extends Character {
     private String color;
     private IA ia; 
+    private boolean mangeable; 
+    private int valScore; 
     /**
      * Construction d'un fantome
      * @param g : l'interface graphique
      * @param nom : le nom du fantome
      * @param x : coordonnee x du fantome
      * @param y : coordonnee y du fantome
+     * @param _color : couleur du fantôme
+     * @param _ia : inteligence artificiel associé au fantôme
      */
-    public Ghost(Jeu g, String nom, int x, int y, String _color, IA _ia) {
-        super(g, nom, x, y);
+    public Ghost(Jeu g, String nom, int x, int y, int v, String _color, IA _ia) {
+        super(g, nom, x, y, v);
         this.color = _color; 
         this.ia = _ia; 
     }
