@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.entites.characters;
+package foxpakpak.main.game.entites.characters;
 
 import iut.Jeu;
 

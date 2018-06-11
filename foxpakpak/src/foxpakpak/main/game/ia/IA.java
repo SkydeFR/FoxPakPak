@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.map.cases;
+package foxpakpak.main.game.ia;
 
 /**
- * Teleporteur
+ *
  * @author jp032952
  */
-public class Teleporter extends Case {
+public abstract class IA {
     
 }

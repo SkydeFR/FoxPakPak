@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.map.cases;
+package foxpakpak.main.game.map.graphes;
 
 /**
- * Sol
+ * Graphe
  * @author jp032952
  */
-public class Floor extends Case {
+public abstract class Graph {
+    
     
 }

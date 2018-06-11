@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.map;
+package foxpakpak.main.game.map.graphes;
 
 /**
- * Carte
- * @author jp032952
+ *
+ * @author ap594025
  */
-public class Map {
+public class Vertex {
     
 }

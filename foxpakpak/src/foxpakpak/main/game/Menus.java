@@ -3,12 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.map.cases;
+package foxpakpak.main.game;
 
 /**
- * Porte pour cage a fantomes
- * @author jp032952
+ * Liste des differents menus
+ * @author Julien P
  */
-public class Door extends Case {
-    
+public enum Menus {
+    /**
+     * Menu principal
+     */
+    PRINCIPAL,
+
+    /**
+     * Le jeu
+     */
+    GAME
 }

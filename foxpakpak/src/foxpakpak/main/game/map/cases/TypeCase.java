@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.graphics.map.cases;
+package foxpakpak.main.game.map.cases;
 
 /**
  * Types de case
- * @author jp032952
+ * @author Ange Pagel
  */
 public enum TypeCase {
 
