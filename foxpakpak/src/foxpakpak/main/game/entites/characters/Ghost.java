@@ -17,6 +17,7 @@ public class Ghost extends Character {
     private IA ia; 
     private boolean mangeable; 
     private int valScore; 
+    
     /**
      * Construction d'un fantome
      * @param g : l'interface graphique
@@ -26,10 +27,8 @@ public class Ghost extends Character {
      * @param _color : couleur du fantôme
      * @param _ia : inteligence artificiel associé au fantôme
      */
-    public Ghost(Jeu g, String nom, int x, int y, int v, String _color, IA _ia) {
+    public Ghost(Jeu g, String nom, int x, int y, int v) {
         super(g, nom, x, y, v);
-        this.color = _color; 
-        this.ia = _ia; 
     }
     
 }

@@ -6,10 +6,15 @@
 package foxpakpak.main.game;
 
 import static foxpakpak.main.game.Menus.*;
+import foxpakpak.main.game.entites.characters.Ghost;
+import foxpakpak.main.game.entites.characters.Pacman;
+import foxpakpak.main.game.ia.IA;
+import iut.Jeu;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -25,6 +30,8 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     
     private Menus menu; // Menu a afficher
     private int action; // Action a effectuer dans le menu principal
+    private Pacman player;
+    private Ghost[] ghosts;
     
     /**
      * Constructeur du jeu
@@ -37,6 +44,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
         this.setLocation(5, 5); // On centre l'interface graphique
         this.ajouteEcouteurSouris(this); // On ecoute la souris
         this.menu = PRINCIPAL; // Menu par defaut = menu principal
+        
     }
     
     /**
@@ -44,7 +52,10 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected void creeObjets() {
+        this.player = new Pacman(this,"pacman", 50, 50, 0);
         
+        this.ghosts = new Ghost[4];
+        this.ghosts[0] = new Ghost(this,"fantome_orange", 255, 100, 0);
     }
 
     /**
@@ -139,6 +150,10 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 g.fillRect(0, 0, largeur(), hauteur());
                 
                 //AFFICHER LEVEL
+                this.ajouter(player);
+                this.ajouteEcouteurClavier(player);
+                this.ajouter(ghosts[0]);
+                
                 break;
             default :
                 System.out.println("Type de menu non implémenté");
