@@ -19,9 +19,9 @@ public class FoxPakPak {
      */
     public static void main(String[] args) {
         String title = "TheFoxPakPak";
-        int width = 720;
-        int height = 400;
-        int scale = 2;        
+        int width = 1024;
+        int height = 768;
+        int scale = 1;        
         
         Map laMap = new Map();
         //laMap.generateMap("C:\\Users\\ap594025\\Downloads\\lev1.txt");

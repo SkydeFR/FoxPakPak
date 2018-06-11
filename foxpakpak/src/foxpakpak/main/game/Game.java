@@ -8,13 +8,10 @@ package foxpakpak.main.game;
 import static foxpakpak.main.game.Menus.*;
 import foxpakpak.main.game.entites.characters.Ghost;
 import foxpakpak.main.game.entites.characters.Pacman;
-import foxpakpak.main.game.ia.IA;
-import iut.Jeu;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -30,6 +27,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     
     private Menus menu; // Menu a afficher
     private int action; // Action a effectuer dans le menu principal
+    private boolean newGame;
     private Pacman player;
     private Ghost[] ghosts;
     
@@ -44,7 +42,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
         this.setLocation(5, 5); // On centre l'interface graphique
         this.ajouteEcouteurSouris(this); // On ecoute la souris
         this.menu = PRINCIPAL; // Menu par defaut = menu principal
-        
+        this.newGame = true;
     }
     
     /**
@@ -52,10 +50,9 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected void creeObjets() {
-        this.player = new Pacman(this,"pacman", 50, 50, 0);
-        
+        this.player = new Pacman(this,"pacman", 50, 50, 1);
         this.ghosts = new Ghost[4];
-        this.ghosts[0] = new Ghost(this,"fantome_orange", 255, 100, 0);
+        this.ghosts[0] = new Ghost(this,"fantome_orange", 255, 100, 1);       
     }
 
     /**
@@ -130,6 +127,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                         Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     menu = GAME; //Nouvelle partie : on affiche le jeu
+                    newGame = true;
                 }
                 
                 /* Lors d'un clic sur le boutton 02 */
@@ -148,11 +146,13 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 /* Afficher BACKGROUND */
                 g.setColor(Color.BLACK);
                 g.fillRect(0, 0, largeur(), hauteur());
-                
+                if (newGame) {
+                    this.ajouter(ghosts[0]);
+                    this.ajouter(player);
+                    this.ajouteEcouteurClavier(player);
+                    newGame = false;
+                }
                 //AFFICHER LEVEL
-                this.ajouter(player);
-                this.ajouteEcouteurClavier(player);
-                this.ajouter(ghosts[0]);
                 
                 break;
             default :

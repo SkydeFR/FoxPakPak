@@ -14,7 +14,7 @@ import java.awt.event.KeyListener;
  * @author jp032952
  */
 public class Pacman extends Character implements KeyListener{
-    
+
     /**
      * Construction d'un pacman
      * @param g : l'interface graphique
@@ -25,7 +25,7 @@ public class Pacman extends Character implements KeyListener{
     public Pacman(Jeu g, String nom, int x, int y, int v) {
         super(g, nom, x, y, v);
     }
-
+    
     @Override
     public void keyTyped(KeyEvent e) {
         
@@ -36,16 +36,24 @@ public class Pacman extends Character implements KeyListener{
         switch(e.getKeyCode())
         {
             case KeyEvent.VK_LEFT:
-                this.deplacerXY(-1, 0);
+                if(posGauche()>0) {
+                    deplacerXY(-10, 0);
+                }
                 break;
             case KeyEvent.VK_RIGHT:
-                this.deplacerXY(+1, 0);
+                if(posDroite()<leJeu().largeur()) {
+                    deplacerXY(+10, 0);
+                }
                 break;
             case KeyEvent.VK_UP:
-                this.deplacerXY(0, -1);
+                if(posHaute()>0) {
+                    deplacerXY(0, -10);
+                }
                 break;
             case KeyEvent.VK_DOWN:
-                this.deplacerXY(0, 1);
+                if(posBasse()<leJeu().hauteur()) {
+                    deplacerXY(0, +10);
+                }
                 break;
         }
     }
