@@ -3,20 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.Game;
+package foxpakpak.main.Game.Niveau.graphes;
 
 /**
- * Liste des differents menus
- * @author Julien P
+ *
+ * @author ap594025
  */
-public enum Menus {
-    /**
-     * Menu principal
-     */
-    PRINCIPAL,
-
-    /**
-     * Le jeu
-     */
-    GAME
+public class Vertex {
+    
 }

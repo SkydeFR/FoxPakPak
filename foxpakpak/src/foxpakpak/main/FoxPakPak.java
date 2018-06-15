@@ -5,8 +5,8 @@
  */
 package foxpakpak.main;
 
-import foxpakpak.main.game.Game;
-import foxpakpak.main.game.map.Map;
+import foxpakpak.main.Game.Game;
+import foxpakpak.main.Game.Niveau.Map;
 
 /**
  *
@@ -22,11 +22,13 @@ public class FoxPakPak {
         int width = 1024;
         int height = 768;
         int scale = 1;        
-        
-        Map laMap = new Map();
-        //laMap.generateMap("C:\\Users\\ap594025\\Downloads\\lev1.txt");
+
         
         Game myFoxPakPak = new Game(width*scale, height*scale, title);
+
+        Map laMap = new Map();
+        laMap.generateMap(myFoxPakPak, "C:\\Users\\Ange\\Documents\\GitHub\\FoxPakPak\\foxpakpak\\res\\Niveaux\\niveau1.txt");
+
         myFoxPakPak.jouer();
     }
     

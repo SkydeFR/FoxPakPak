@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.game;
+package foxpakpak.main.Game;
 
-import static foxpakpak.main.game.Menus.*;
-import foxpakpak.main.game.entites.characters.Ghost;
-import foxpakpak.main.game.entites.characters.Pacman;
+import static foxpakpak.main.Game.Menus.*;
+
+import foxpakpak.main.Game.Entites.*;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -28,9 +29,12 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     private Menus menu; // Menu a afficher
     private int action; // Action a effectuer dans le menu principal
     private boolean newGame;
-    private Pacman player;
-    private Ghost[] ghosts;
-    
+    private PacMan player;
+
+    private Ghost Blinky;
+    private Ghost Pinky;
+    private Ghost Inky;
+    private Ghost Clyde;
     /**
      * Constructeur du jeu
      * @param width : la largeur du jeu
@@ -50,10 +54,12 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected void creeObjets() {
-        this.player = new Pacman(this,"pacman", 0, 0, 1);
-        this.player.spawn();
-        this.ghosts = new Ghost[4];
-        this.ghosts[0] = new Ghost(this,"fantome_orange", 255, 100, 1);       
+        this.player = new PacMan(this,"Sprites/PacMan/PacMan_3", 0, 0);
+        this.Blinky = new Ghost(this,"Sprites/Ghosts/Blinky", 255, 100);
+        this.Pinky = new Ghost(this,"Sprites/Ghosts/Pinky", 200, 100);
+        this.Inky = new Ghost(this,"Sprites/Ghosts/Inky", 150, 100);
+        this.Clyde = new Ghost(this,"Sprites/Ghosts/Clyde", 100, 100);
+
     }
 
     /**
@@ -148,7 +154,10 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 g.setColor(Color.BLACK);
                 g.fillRect(0, 0, largeur(), hauteur());
                 if (newGame) {
-                    this.ajouter(ghosts[0]);
+                    this.ajouter(Blinky);
+                    this.ajouter(Pinky);
+                    this.ajouter(Inky);
+                    this.ajouter(Clyde);
                     this.ajouter(player);
                     this.ajouteEcouteurClavier(player);
                     newGame = false;
@@ -220,7 +229,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected boolean aPerdu() {
-       return player.getLife()<=0;
+       return false;
     }
     
     /**

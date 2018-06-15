@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.game.ia;
+package foxpakpak.main.Game.ia;
 
 import iut.Jeu;
 import iut.Objet;

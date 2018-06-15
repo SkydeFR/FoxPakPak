@@ -3,19 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.Game.ia;
+package foxpakpak.main.Game.Niveau.Cases;
 
 import iut.Jeu;
-import iut.ObjetTouchable;
 
 /**
- *
- * @author jp032952
+ * Mur
+ * @author Ange Pagel
  */
-public abstract class IA extends ObjetTouchable {
-    
-    public IA(Jeu g, String nom, int x, int y) {
+public class Mur extends Case {
+
+    public Mur(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
     }
-    
+
+    @Override
+    public String getTypeObjet() {
+        return "MUR";
+    }
+
 }
