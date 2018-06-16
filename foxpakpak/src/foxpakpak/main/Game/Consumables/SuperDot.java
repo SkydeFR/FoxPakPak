@@ -21,7 +21,12 @@ public class SuperDot extends Consommable {
      */
     public SuperDot(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
+        this.scorePts = 30;
     }
     
+    @Override
+    public String getTypeObjet() {
+        return "SUPERDOT";
+    }
     
 }

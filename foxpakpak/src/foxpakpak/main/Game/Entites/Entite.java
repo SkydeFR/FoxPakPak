@@ -8,9 +8,9 @@ import iut.ObjetTouchable;
 
 abstract class Entite extends ObjetTouchable {
     
-    private int vitesse;
+    int vitesse;
     private Direction direction;
-    private boolean collisionMur;
+    boolean collisionMur;
     
     /**
      * Construction d'un personnage
@@ -29,6 +29,7 @@ abstract class Entite extends ObjetTouchable {
         this.collisionMur = collisionMur;
     }
     
+    @Override
     public void evoluer(long dt) {
         if (!collisionMur) {
             this.vitesse = 2;

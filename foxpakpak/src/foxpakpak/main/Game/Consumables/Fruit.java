@@ -22,6 +22,12 @@ public class Fruit extends Consommable {
      */
     public Fruit(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
+        this.scorePts = 100;
+    }
+    
+    @Override
+    public String getTypeObjet() {
+        return "FRUIT";
     }
     
 }

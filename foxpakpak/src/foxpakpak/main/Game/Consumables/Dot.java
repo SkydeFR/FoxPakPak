@@ -12,8 +12,6 @@ import iut.Jeu;
  * @author jp032952
  */
 public class Dot extends Consommable {
-    private int score; 
-    private boolean estManger; 
     
     /**
      * Construction d'un point
@@ -24,7 +22,12 @@ public class Dot extends Consommable {
      */
     public Dot(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
+        this.scorePts = 10;
     }
     
+    @Override
+    public String getTypeObjet() {
+        return "DOT";
+    }
     
 }

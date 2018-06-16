@@ -28,12 +28,14 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     private Menus menu; // Menu a afficher
     private int action; // Action a effectuer dans le menu principal
     private boolean newGame;
+    
+    private Level level = new Level();
     private PacMan player;
 
-    private Ghost Blinky;
-    private Ghost Pinky;
-    private Ghost Inky;
-    private Ghost Clyde;
+    private Ghost blinky;
+    private Ghost pinky;
+    private Ghost inky;
+    private Ghost clyde;
     /**
      * Constructeur du jeu
      * @param width : la largeur du jeu
@@ -53,12 +55,12 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected void creeObjets() {
-        this.player = new PacMan(this,"Sprites/PacMan/PacMan_3", 60, 60);
-        this.Blinky = new Ghost(this,"Sprites/Ghosts/Blinky", 255, 100);
-        this.Pinky = new Ghost(this,"Sprites/Ghosts/Pinky", 200, 100);
-        this.Inky = new Ghost(this,"Sprites/Ghosts/Inky", 150, 100);
-        this.Clyde = new Ghost(this,"Sprites/Ghosts/Clyde", 100, 100);
-
+        this.level = new Level();
+        this.player = new PacMan(this,"Sprites/PacMan/PacMan_3", 32*2+6, 32*2+6);
+        this.blinky = new Ghost(this,"Sprites/Ghosts/Blinky", 255, 100);
+        this.pinky = new Ghost(this,"Sprites/Ghosts/Pinky", 200, 100);
+        this.inky = new Ghost(this,"Sprites/Ghosts/Inky", 150, 100);
+        this.clyde = new Ghost(this,"Sprites/Ghosts/Clyde", 100, 100);
     }
 
     /**
@@ -153,15 +155,13 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 g.setColor(Color.BLACK);
                 g.fillRect(0, 0, largeur(), hauteur());
                 if (newGame) {
-                    this.ajouter(Blinky);
-                    this.ajouter(Pinky);
-                    this.ajouter(Inky);
-                    this.ajouter(Clyde);
+                    this.ajouter(blinky);
+                    this.ajouter(pinky);
+                    this.ajouter(inky);
+                    this.ajouter(clyde);
                     this.ajouter(player);
                     this.ajouteEcouteurClavier(player);
-                    
-                    Level niveau = new Level();
-                    niveau.generateLevel(this, "res\\Niveaux\\niveau1.txt");
+                    this.level.generateLevel(this, "res\\Niveaux\\niveau1.txt");
                     newGame = false;
                 }
                 //AFFICHER LEVEL

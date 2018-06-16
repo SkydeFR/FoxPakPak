@@ -14,7 +14,8 @@ import iut.ObjetTouchable;
  * @author jp032952
  */
 public abstract class Consommable extends ObjetTouchable {
-    private int valScore; 
+    protected int scorePts; 
+    
     /**
      * Construction d'un consommable
      * @param g : l'interface graphique
@@ -51,6 +52,10 @@ public abstract class Consommable extends ObjetTouchable {
     @Override
     public void evoluer(long dt) {
         
+    }
+    
+    public int getScorePts() {
+        return scorePts;
     }
     
 }

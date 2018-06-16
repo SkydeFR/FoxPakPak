@@ -1,5 +1,6 @@
 package foxpakpak.main.Game.Entites;
 
+import foxpakpak.main.Game.Consumables.*;
 import iut.Jeu;
 import iut.Objet;
 
@@ -7,41 +8,93 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class PacMan extends Entite implements KeyListener {
-
+    
+    private Jeu g;
     private int vies;
+    private int score;
+    private Objet tmpObjet;
 
-    public PacMan(Jeu g, String nom, int x, int y) {
-        super(g, nom, x, y);
+    public PacMan(Jeu _g, String _nom, int _x, int _y) {
+        super(_g, _nom, _x, _y);
+        this.g = _g;
         this.vies = 3;
+        this.score = 0;
+    }
+    
+    public void mangerConsommable(Consommable o) {
+        if (tmpObjet != o) {
+            tmpObjet = o;
+            g.supprimer(o);
+            score += o.getScorePts();
+            System.out.println("Score :"+score);
+        }
     }
 
     @Override
     public void effetCollision(Objet o) {
-        if ("GHOST".equals(o.getTypeObjet())) {
-            perdreVie();
-        }
+        switch (o.getTypeObjet()) {
+            case "GHOST":
+                perdreVie();
+                break;
+                
+            case "MUR":
+                setCollisionMur(true);
+                switch (getDirection()) {
+                    case HAUT:
+                        deplacerXY(0, 1);
+                        break;
 
-        if ("MUR".equals(o.getTypeObjet())) {
-            setCollisionMur(true);
+                    case BAS:
+                        deplacerXY(0, -1);
+                        break;
+
+                    case DROITE:
+                        deplacerXY(-1, 0);
+                        break;
+
+                    case GAUCHE:
+                        deplacerXY(1, 0);
+                        break;
+                }
+                break;
+                
+            case "DOT":
+                mangerConsommable((Dot)o);
+                break;
+                
+            case "SUPERDOT":
+                mangerConsommable((SuperDot)o);
+                break;
+                
+            case "FRUIT":
+                mangerConsommable((Fruit)o);
+                break;
+        }
+    }
+    
+    @Override
+    public void evoluer(long dt) {       
+        if (!collisionMur) {
+            this.vitesse = 2;
             switch (getDirection()) {
                 case HAUT:
-                    deplacerXY(0, 1);
+                    deplacerXY(0, -vitesse);
                     break;
-                    
+
                 case BAS:
-                    deplacerXY(0, -1);
+                    deplacerXY(0, vitesse);
                     break;
-                    
+
                 case DROITE:
-                    deplacerXY(-1, 0);
+                    deplacerXY(vitesse, 0);
                     break;
-                    
+
                 case GAUCHE:
-                    deplacerXY(1, 0);
+                    deplacerXY(-vitesse, 0);
                     break;
             }
-        this.setVitesse(0);
         }
+        collisionMur = false;
     }
 
     public void perdreVie() {

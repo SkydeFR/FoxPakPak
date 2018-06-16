@@ -7,6 +7,9 @@ package foxpakpak.main.Game.Level;
 
 import java.util.ArrayList;
 import foxpakpak.main.Game.Consumables.Consommable;
+import foxpakpak.main.Game.Consumables.Dot;
+import foxpakpak.main.Game.Consumables.Fruit;
+import foxpakpak.main.Game.Consumables.SuperDot;
 import foxpakpak.main.Game.Level.Cases.Sol;
 import foxpakpak.main.Game.Level.Cases.Mur;
 import iut.Jeu;
@@ -45,7 +48,15 @@ public class Level {
                             break;
                             
                         /* CONSOMMABLES */
-                        //case 'F': g.ajouter(new Fruit(g, "Sprites/Cases/Mur", x*32, y*32)); break;
+                        case 'X':
+                            g.ajouter(new Dot(g, "Sprites/Consumables/Dot", x*32+14, y*32+14));
+                            break;
+                        case 'D':
+                            g.ajouter(new SuperDot(g, "Sprites/Consumables/SuperDot", x*32+12, y*32+12));
+                            break;
+                        case 'F':
+                            g.ajouter(new Fruit(g, "Sprites/Consumables/Fruit", x*32+10, y*32+10));
+                            break;
                     }
                 }
                 
