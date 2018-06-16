@@ -14,7 +14,7 @@ import java.awt.event.KeyListener;
  * Pacman
  * @author jp032952
  */
-public class Pacman extends Character implements KeyListener{
+public class Pacman implements KeyListener{
     
     private int score;
     private int life;
@@ -29,7 +29,6 @@ public class Pacman extends Character implements KeyListener{
      * @param v : la vitesse
      */
     public Pacman(Jeu g, String nom, int x, int y, int v) {
-        super(g, nom, x, y, v);
         this.score = 0;
         this.life = 3;
         this.xSpawn = 350;
@@ -37,7 +36,6 @@ public class Pacman extends Character implements KeyListener{
         System.out.println("Vie restantes : "+life);
     }
     
-    @Override
     public void effetCollision(Objet o) {
         if ("Ghost".equals(o.getTypeObjet())) {
             perdreVie();
@@ -53,7 +51,7 @@ public class Pacman extends Character implements KeyListener{
     }
 
     public void evoluer(long dt) {
-        deplacerXY(1,0);
+        //deplacerXY(1,0);
     }
 
     public int getLife() {
@@ -61,7 +59,7 @@ public class Pacman extends Character implements KeyListener{
     }
     
     public void spawn() {
-        deplacerXY(xSpawn-milieuX(), ySpawn-milieuY());
+        //deplacerXY(xSpawn-milieuX(), ySpawn-milieuY());
     }
     
     public void setSpawn(int x, int y) {
@@ -74,6 +72,7 @@ public class Pacman extends Character implements KeyListener{
         
     }
 
+    /*
     @Override
     public void keyPressed(KeyEvent e) {
         switch(e.getKeyCode())
@@ -100,15 +99,20 @@ public class Pacman extends Character implements KeyListener{
                 break;
         }
     }
+    */
 
     @Override
     public void keyReleased(KeyEvent e) {
         
     }
 
-    @Override
     public String getTypeObjet() {
         return "Pacman";
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -12,6 +12,7 @@ public class PacMan extends Entite implements KeyListener {
     private Jeu g;
     private int vies;
     private int score;
+    private boolean win;
     private Objet tmpObjet;
 
     public PacMan(Jeu _g, String _nom, int _x, int _y) {
@@ -19,6 +20,8 @@ public class PacMan extends Entite implements KeyListener {
         this.g = _g;
         this.vies = 3;
         this.score = 0;
+        this.win = false;
+        setSpawn(32+6, 32*4+6);
     }
     
     public void mangerConsommable(Consommable o) {
@@ -40,19 +43,19 @@ public class PacMan extends Entite implements KeyListener {
                 setCollisionMur(true);
                 switch (getDirection()) {
                     case HAUT:
-                        deplacerXY(0, 1);
+                        deplacerXY(0, vitesse);
                         break;
 
                     case BAS:
-                        deplacerXY(0, -1);
+                        deplacerXY(0, -vitesse);
                         break;
 
                     case DROITE:
-                        deplacerXY(-1, 0);
+                        deplacerXY(-vitesse, 0);
                         break;
 
                     case GAUCHE:
-                        deplacerXY(1, 0);
+                        deplacerXY(vitesse, 0);
                         break;
                 }
                 break;
@@ -74,7 +77,7 @@ public class PacMan extends Entite implements KeyListener {
     @Override
     public void evoluer(long dt) {       
         if (!collisionMur) {
-            this.vitesse = 2;
+            this.vitesse = 1;
             switch (getDirection()) {
                 case HAUT:
                     deplacerXY(0, -vitesse);
@@ -99,9 +102,8 @@ public class PacMan extends Entite implements KeyListener {
     public void perdreVie() {
         if (vies>0) {
             vies--;
-            //spawn();
+            spawn();
         }
-        System.out.println("Vie restantes : "+vies);
     }
     
     public int getVie() {
@@ -110,6 +112,10 @@ public class PacMan extends Entite implements KeyListener {
     
     public int getScore() {
         return score;
+    }
+    
+    public boolean getWin() {
+        return win;
     }
 
     @Override

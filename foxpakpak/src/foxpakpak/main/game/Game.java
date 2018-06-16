@@ -56,7 +56,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     @Override
     protected void creeObjets() {
         this.level = new Level();
-        this.player = new PacMan(this,"Sprites/PacMan/PacMan_3", 32*4+6, 32*4+6);
+        this.player = new PacMan(this,"Sprites/PacMan/PacMan_3", 32+6, 32*4+6);
         this.blinky = new Ghost(this,"Sprites/Ghosts/Blinky", 255, 100);
         this.pinky = new Ghost(this,"Sprites/Ghosts/Pinky", 200, 100);
         this.inky = new Ghost(this,"Sprites/Ghosts/Inky", 150, 100);
@@ -157,10 +157,10 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 
                 /* Générer le niveau */
                 if (newGame) {
-                    this.ajouter(blinky);
-                    this.ajouter(pinky);
-                    this.ajouter(inky);
-                    this.ajouter(clyde);
+                    //this.ajouter(blinky);
+                    //this.ajouter(pinky);
+                    //this.ajouter(inky);
+                    //this.ajouter(clyde);
                     this.ajouter(player);
                     this.ajouteEcouteurClavier(player);
                     this.level.generateLevel(this, "res\\Niveaux\\niveau1.txt");
@@ -231,7 +231,8 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected void perdu() {
-        JOptionPane.showMessageDialog(this, "Vous avez perdu");
+        JOptionPane.showMessageDialog(this, "Vous avez perdu !\nScore final : "+player.getScore());
+        System.exit(0);
     }
 
     /**
@@ -239,7 +240,8 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected void gagne() {
-        JOptionPane.showMessageDialog(this, "Vous avez gagné");
+        JOptionPane.showMessageDialog(this, "Vous avez gagné !\nVie restantes : "+player.getVie()+"\nScore final : "+player.getScore());
+        System.exit(0);
     }
 
     /**
@@ -248,7 +250,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected boolean aGagne() {
-        return false;
+        return player.getWin();
     }
 
     /**
@@ -257,7 +259,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
      */
     @Override
     protected boolean aPerdu() {
-       return false;
+       return player.getVie()==0;
     }
     
     /**

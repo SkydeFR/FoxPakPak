@@ -1,5 +1,6 @@
 package foxpakpak.main.Game.Entites;
 
+import static foxpakpak.main.Game.Entites.Direction.*;
 import iut.Jeu;
 
 public class Ghost extends Entite {
@@ -9,7 +10,8 @@ public class Ghost extends Entite {
 
     public Ghost(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
-        setVitesse(1);
+        setDirection(DROITE);
+        setVitesse(2);
     }
 
 

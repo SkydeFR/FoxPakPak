@@ -1,15 +1,15 @@
 package foxpakpak.main.Game.Entites;
 
-import static foxpakpak.main.Game.Entites.Direction.BAS;
-import static foxpakpak.main.Game.Entites.Direction.HAUT;
+import static foxpakpak.main.Game.Entites.Direction.*;
 import iut.Jeu;
 import iut.Objet;
 import iut.ObjetTouchable;
 
 abstract class Entite extends ObjetTouchable {
     
+    int xSpawn, ySpawn;
     int vitesse;
-    private Direction direction;
+    private Direction direction, directionTMP;
     boolean collisionMur;
     
     /**
@@ -21,8 +21,9 @@ abstract class Entite extends ObjetTouchable {
      */
     public Entite(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
-        this.vitesse = 2;
-        this.direction = Direction.DROITE;
+        this.vitesse = 1;
+        this.direction = AUCUNE;
+        this.directionTMP = AUCUNE;
     }
     
     public void setCollisionMur(boolean collisionMur) {
@@ -73,6 +74,16 @@ abstract class Entite extends ObjetTouchable {
     
     public Direction getDirection() {
         return this.direction;
+    }
+    
+    public void spawn() {
+        setDirection(AUCUNE);
+        deplacerXY(xSpawn-posGauche(), ySpawn-posHaute());
+    }
+    
+    public void setSpawn(int x, int y) {
+        xSpawn = x;
+        ySpawn = y;
     }
     
 }
