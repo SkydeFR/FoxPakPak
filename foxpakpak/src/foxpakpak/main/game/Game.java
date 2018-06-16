@@ -56,7 +56,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     @Override
     protected void creeObjets() {
         this.level = new Level();
-        this.player = new PacMan(this,"Sprites/PacMan/PacMan_3", 32*2+6, 32*2+6);
+        this.player = new PacMan(this,"Sprites/PacMan/PacMan_3", 32*4+6, 32*4+6);
         this.blinky = new Ghost(this,"Sprites/Ghosts/Blinky", 255, 100);
         this.pinky = new Ghost(this,"Sprites/Ghosts/Pinky", 200, 100);
         this.inky = new Ghost(this,"Sprites/Ghosts/Inky", 150, 100);
@@ -154,6 +154,8 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 /* Afficher BACKGROUND */
                 g.setColor(Color.BLACK);
                 g.fillRect(0, 0, largeur(), hauteur());
+                
+                /* Générer le niveau */
                 if (newGame) {
                     this.ajouter(blinky);
                     this.ajouter(pinky);
@@ -164,8 +166,32 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                     this.level.generateLevel(this, "res\\Niveaux\\niveau1.txt");
                     newGame = false;
                 }
-                //AFFICHER LEVEL
                 
+                /* Afficher panel joueur */
+                g.setColor(Color.BLACK);
+                g.fillRect(0, 0, largeur(), 32*2);
+                g.setColor(Color.WHITE);
+                g.drawRect(0, 0, largeur(), 32*2-1);
+                
+                /* Afficher vies */
+                g.setColor(Color.ORANGE);
+                g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+                g.drawString("Vie restantes : ",40,40);
+                if (player.getVie() > 1) {
+                    g.setColor(Color.GREEN);                  
+                } else {
+                    g.setColor(Color.RED); 
+                }
+                g.setFont(new Font("TimesRoman", Font.PLAIN, 18));
+                g.drawString(String.valueOf(player.getVie()),175,40);
+                
+                /* Afficher score */
+                g.setColor(Color.ORANGE);
+                g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+                g.drawString("Score : ",200+40,40);
+                g.setColor(Color.YELLOW);
+                g.setFont(new Font("TimesRoman", Font.PLAIN, 18));
+                g.drawString(String.valueOf(player.getScore()),200+110,40);
                 break;
             default :
                 System.out.println("Type de menu non implémenté");

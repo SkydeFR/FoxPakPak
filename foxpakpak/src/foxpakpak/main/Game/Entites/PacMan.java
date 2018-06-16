@@ -26,7 +26,6 @@ public class PacMan extends Entite implements KeyListener {
             tmpObjet = o;
             g.supprimer(o);
             score += o.getScorePts();
-            System.out.println("Score :"+score);
         }
     }
 
@@ -103,6 +102,14 @@ public class PacMan extends Entite implements KeyListener {
             //spawn();
         }
         System.out.println("Vie restantes : "+vies);
+    }
+    
+    public int getVie() {
+        return vies;
+    }
+    
+    public int getScore() {
+        return score;
     }
 
     @Override
