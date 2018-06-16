@@ -3,39 +3,64 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.Game.level;
+package foxpakpak.main.Game.Level;
+
+import java.util.ArrayList;
+import foxpakpak.main.Game.Consumables.Consommable;
+import foxpakpak.main.Game.Level.Cases.Sol;
+import foxpakpak.main.Game.Level.Cases.Mur;
+import iut.Jeu;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 
 /**
- * Niveau
+ * Carte
  * @author jp032952
  */
 public class Level {
-/* Si level [....] 
-    -> Créer un graphe propre à chaque niveau, à partir d'un fichier texte
-    -> Toujours même nombre de fantômes : chacun avec ses caractéristiques, son IA propre.
-        - Shadow(Blinky) : le fantôme rouge.
-            - IA : Blinky attaque directement Pac Man. Il suit Pac-Man comme son ombre.
-        - Speedy(Pinky) : le fantôme rose est un personnage féminin. Il est présenté comme le plus intelligent.
-            - IA : Pinky a tendance à se mettre en embuscade. Elle vise l'endroit où va se trouver Pac-Man.
-        - Bashful(Inky) : le fantôme bleu.
-            - IA : Inky est capricieux. De temps en temps, il part dans la direction opposée à Pac-Man.
-        - Pokey(Clyde) : le fantôme orange.
-            - IA : Clyde feint l'indifférence. De temps en temps, il choisit une direction au hasard (qui peut être celle de Pac-Man).
+    
+    private ArrayList<Consommable> consumables;
+    private ArrayList<Character> characters;
     
     
-    -> Chaque level possède ces quatres fantômes
-    
-    
-    */  
-    
-    private int nbLevel;
-    
-    public Level(int lev){
-        
-        // Générer fantôme Bliky
-        // Générer fantôme Speedy
-        // Générer fnatôme Pinky
-        // Générer fantôme Clyde
+    public void generateLevel(Jeu g, String filePath) {
+        try {
+            Scanner fichier = new Scanner(new File(filePath));
+            String ligne;
+
+            int y = 0;
+
+
+            while (fichier.hasNext()) {
+                ligne = fichier.nextLine();
+
+
+                for (int x = 0; x < ligne.length() - 1; x++) {
+                    switch (ligne.charAt(x)) {
+
+                        /* CASES */
+                        case 'M': g.ajouter(new Mur(g, "Sprites/Cases/Mur", x*32, y*32)); break;
+                        case 'S': g.ajouter(new Sol(g, "Sprites/Cases/Sol", x*32, y*32)); break;
+
+                        /* CONSOMMABLES */
+                        //case 'F': g.ajouter(new Fruit(g, "Sprites/Cases/Mur", x*32, y*32)); break;
+
+                    }
+                }
+                y++;
+
+            }
+
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("Aucun fichier " + filePath + " n'a été trouvé");
+            System.out.println(ex);
+        }
         
     }
+    
+    
 }

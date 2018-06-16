@@ -10,15 +10,10 @@ public class PacMan extends Entite implements KeyListener {
 
     private int vies;
 
-
     public PacMan(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
         this.vies = 3;
     }
-
-
-
-
 
     @Override
     public void effetCollision(Objet o) {
@@ -57,11 +52,6 @@ public class PacMan extends Entite implements KeyListener {
         System.out.println("Vie restantes : "+vies);
     }
 
-
-
-
-
-
     @Override
     public void keyPressed(KeyEvent e) {
         switch(e.getKeyCode())
@@ -83,18 +73,17 @@ public class PacMan extends Entite implements KeyListener {
                 break;
         }
     }
-
-
+    
     @Override
-    public void keyTyped(KeyEvent e) {}
+    public void keyTyped(KeyEvent e) {
+    
+    }
+    
     @Override
-    public void keyReleased(KeyEvent e) {}
-
-
-
-
-
-
+    public void keyReleased(KeyEvent e) {
+    
+    }
+    
     @Override
     public String getTypeObjet() {
         return "PACMAN";

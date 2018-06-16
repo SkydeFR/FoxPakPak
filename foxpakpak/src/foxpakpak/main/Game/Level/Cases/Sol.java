@@ -3,23 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.Game.Niveau.Cases;
+package foxpakpak.main.Game.Level.Cases;
 
 import iut.Jeu;
 
 /**
- * Mur
+ * Sol
  * @author Ange Pagel
  */
-public class Mur extends Case {
+public class Sol extends Case {
 
-    public Mur(Jeu g, String nom, int x, int y) {
+    public Sol(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
     }
 
     @Override
     public String getTypeObjet() {
-        return "MUR";
+        return "SOL";
     }
-
+    
 }

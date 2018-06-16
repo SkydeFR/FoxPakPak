@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.Game.Niveau.graphes;
+package foxpakpak.main.Game.Level.Graphs;
 
 /**
- *
- * @author ap594025
+ * Graphe
+ * @author jp032952
  */
-public class Vertex {
+public abstract class Graph {
+    
     
 }

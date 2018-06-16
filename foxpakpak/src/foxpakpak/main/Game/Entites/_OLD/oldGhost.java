@@ -5,7 +5,7 @@
  */
 package foxpakpak.main.Game.Entites._OLD;
 
-import foxpakpak.main.Game.ia.IA;
+import foxpakpak.main.Game.IA.IA;
 import iut.Jeu;
 
 /**

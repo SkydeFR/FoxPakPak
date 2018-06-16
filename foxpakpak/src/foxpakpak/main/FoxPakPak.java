@@ -6,7 +6,7 @@
 package foxpakpak.main;
 
 import foxpakpak.main.Game.Game;
-import foxpakpak.main.Game.Niveau.Map;
+import foxpakpak.main.Game.Level.Level;
 
 /**
  *
@@ -21,14 +21,9 @@ public class FoxPakPak {
         String title = "TheFoxPakPak";
         int width = 1024;
         int height = 768;
-        int scale = 1;        
-
+        int scale = 1;
         
         Game myFoxPakPak = new Game(width*scale, height*scale, title);
-
-        Map laMap = new Map();
-        laMap.generateMap(myFoxPakPak, "C:\\Users\\Marion\\Documents\\GitHub\\FoxPakPak\\foxpakpak\\res\\Niveaux\\niveau1.txt");
-
         myFoxPakPak.jouer();
     }
     

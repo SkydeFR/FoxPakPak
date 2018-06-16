@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.Game.Niveau;
+package foxpakpak.main.Game.Level;
 
 import java.util.ArrayList;
-import foxpakpak.main.Game.Consommables.Consommable;
-import foxpakpak.main.Game.Niveau.Cases.Sol;
-import foxpakpak.main.Game.Niveau.Cases.Mur;
+import foxpakpak.main.Game.Consumables.Consommable;
+import foxpakpak.main.Game.Level.Cases.Sol;
+import foxpakpak.main.Game.Level.Cases.Mur;
 import iut.Jeu;
 
 import java.io.File;
@@ -20,13 +20,13 @@ import java.util.Scanner;
  * Carte
  * @author jp032952
  */
-public class Map {
+public class Level {
     
     private ArrayList<Consommable> consumables;
     private ArrayList<Character> characters;
     
     
-    public void generateMap(Jeu g, String filePath) {
+    public void generateLevel(Jeu g, String filePath) {
         try {
             Scanner fichier = new Scanner(new File(filePath));
             String ligne;
@@ -43,7 +43,7 @@ public class Map {
 
                         /* CASES */
                         case 'M': g.ajouter(new Mur(g, "Sprites/Cases/Mur", x*32, y*32)); break;
-                        case 'S': g.ajouter(new Sol(g, "Sprites/Cases/Mur.png", x*32, y*32)); break;
+                        case 'S': g.ajouter(new Sol(g, "Sprites/Cases/Sol", x*32, y*32)); break;
 
                         /* CONSOMMABLES */
                         //case 'F': g.ajouter(new Fruit(g, "Sprites/Cases/Mur", x*32, y*32)); break;
@@ -55,9 +55,9 @@ public class Map {
             }
 
 
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException ex) {
             System.out.println("Aucun fichier " + filePath + " n'a été trouvé");
-            e.printStackTrace();
+            System.out.println(ex);
         }
         
     }

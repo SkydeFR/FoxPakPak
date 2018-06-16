@@ -8,6 +8,7 @@ package foxpakpak.main.Game;
 import static foxpakpak.main.Game.Menus.*;
 
 import foxpakpak.main.Game.Entites.*;
+import foxpakpak.main.Game.Level.Level;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -16,8 +17,6 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -131,7 +130,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                     try {
                         Thread.sleep(50);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println(ex);
                     }
                     menu = GAME; //Nouvelle partie : on affiche le jeu
                     newGame = true;
@@ -144,7 +143,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                     try {
                         Thread.sleep(50);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println(ex);
                     }
                     System.exit(0); //Quitter : on quitte le jeu
                 }
@@ -160,6 +159,9 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                     this.ajouter(Clyde);
                     this.ajouter(player);
                     this.ajouteEcouteurClavier(player);
+                    
+                    Level niveau = new Level();
+                    niveau.generateLevel(this, "res\\Niveaux\\niveau1.txt");
                     newGame = false;
                 }
                 //AFFICHER LEVEL
