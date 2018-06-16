@@ -7,12 +7,11 @@ import iut.Objet;
 import iut.ObjetTouchable;
 
 abstract class Entite extends ObjetTouchable {
-
-
+    
     private int vitesse;
     private Direction direction;
     private boolean collisionMur;
-
+    
     /**
      * Construction d'un personnage
      * @param g : l'interface graphique
@@ -25,14 +24,12 @@ abstract class Entite extends ObjetTouchable {
         this.vitesse = 2;
         this.direction = Direction.DROITE;
     }
-
-
+    
     public void setCollisionMur(boolean collisionMur) {
         this.collisionMur = collisionMur;
     }
-
+    
     public void evoluer(long dt) {
-
         if (!collisionMur) {
             this.vitesse = 2;
             switch (getDirection()) {
@@ -53,32 +50,28 @@ abstract class Entite extends ObjetTouchable {
                     break;
             }
         }      
-
-
+        
         collisionMur = false;
-
     }
-
-
+    
     @Override
     public void effetCollision(Objet objet) {
 
     }
-
+    
     public int getVitesse() {
         return vitesse;
     }
     public void setVitesse(int vitesse) {
         this.vitesse = vitesse;
     }
-
-
+    
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
-
+    
     public Direction getDirection() {
         return this.direction;
     }
-
+    
 }

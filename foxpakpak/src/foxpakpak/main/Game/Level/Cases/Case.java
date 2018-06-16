@@ -16,7 +16,7 @@ import iut.ObjetTouchable;
 public abstract class Case extends ObjetTouchable {
     
     private boolean franchissable;
-
+    
     /**
      * Constructeur
      * @param x Coordonnée x de la case
@@ -26,26 +26,21 @@ public abstract class Case extends ObjetTouchable {
         super(g, nom, x, y);
     }
     
-    
-
     public boolean isFranchissable() {
         return franchissable;
     }
+    
     public void setFranchissable(boolean bool) {
         franchissable = bool;
     }
-
-
-
-
-
+    
     @Override
     public void evoluer(long dt) {
-
+        
     }
-
+    
     @Override
     public void effetCollision(Objet objet) {
-
+        
     }
 }

@@ -27,15 +27,15 @@ public class PacMan extends Entite implements KeyListener {
                 case HAUT:
                     deplacerXY(0, 1);
                     break;
-
+                    
                 case BAS:
                     deplacerXY(0, -1);
                     break;
-
+                    
                 case DROITE:
                     deplacerXY(-1, 0);
                     break;
-
+                    
                 case GAUCHE:
                     deplacerXY(1, 0);
                     break;

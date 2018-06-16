@@ -12,11 +12,11 @@ import iut.Jeu;
  * @author Ange Pagel
  */
 public class Sol extends Case {
-
+    
     public Sol(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
     }
-
+    
     @Override
     public String getTypeObjet() {
         return "SOL";

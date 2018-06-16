@@ -1,9 +1,24 @@
-MMMMMMM 
-M     M 
-M     M 
-M     M 
-M  MMMM 
-M     M 
-MMMMM M 
-M     M 
-MMMMMMM 
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM 
+MXXXXXMMXXXXXM 
+MXMMMXXMMXMXMM 
+MXXXMMXXXXMXXX 
+MMMXXXMMMXMMMM 
+MXXXMXXXXXXXXM 
+MMMMMMMMMMMMMM 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+M                              M 
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM 
