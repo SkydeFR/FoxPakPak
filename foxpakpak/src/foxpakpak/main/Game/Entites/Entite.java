@@ -1,5 +1,7 @@
 package foxpakpak.main.Game.Entites;
 
+import static foxpakpak.main.Game.Entites.Direction.BAS;
+import static foxpakpak.main.Game.Entites.Direction.HAUT;
 import iut.Jeu;
 import iut.Objet;
 import iut.ObjetTouchable;
@@ -32,6 +34,7 @@ abstract class Entite extends ObjetTouchable {
     public void evoluer(long dt) {
 
         if (!collisionMur) {
+            this.vitesse = 2;
             switch (getDirection()) {
                 case HAUT:
                     deplacerXY(0, -vitesse);
@@ -49,7 +52,8 @@ abstract class Entite extends ObjetTouchable {
                     deplacerXY(-vitesse, 0);
                     break;
             }
-        }
+        }      
+
 
         collisionMur = false;
 

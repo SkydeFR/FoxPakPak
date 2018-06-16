@@ -27,9 +27,10 @@ public class FoxPakPak {
         Game myFoxPakPak = new Game(width*scale, height*scale, title);
 
         Map laMap = new Map();
-        laMap.generateMap(myFoxPakPak, "C:\\Users\\Ange\\Documents\\GitHub\\FoxPakPak\\foxpakpak\\res\\Niveaux\\niveau1.txt");
+        laMap.generateMap(myFoxPakPak, "C:\\Users\\Marion\\Documents\\GitHub\\FoxPakPak\\foxpakpak\\res\\Niveaux\\niveau1.txt");
 
         myFoxPakPak.jouer();
     }
+    
     
 }
