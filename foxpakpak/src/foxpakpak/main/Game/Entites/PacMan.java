@@ -1,6 +1,7 @@
 package foxpakpak.main.Game.Entites;
 
 import foxpakpak.main.Game.Consumables.*;
+import static foxpakpak.main.Game.Entites.Direction.AUCUNE;
 import iut.Jeu;
 import iut.Objet;
 
@@ -44,18 +45,22 @@ public class PacMan extends Entite implements KeyListener {
                 switch (getDirection()) {
                     case HAUT:
                         deplacerXY(0, vitesse);
+                        this.setDirection(AUCUNE);
                         break;
 
                     case BAS:
                         deplacerXY(0, -vitesse);
+                        this.setDirection(AUCUNE);
                         break;
 
                     case DROITE:
                         deplacerXY(-vitesse, 0);
+                        this.setDirection(AUCUNE);
                         break;
 
                     case GAUCHE:
                         deplacerXY(vitesse, 0);
+                        this.setDirection(AUCUNE);
                         break;
                 }
                 break;
