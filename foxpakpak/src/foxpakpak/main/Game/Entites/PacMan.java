@@ -14,6 +14,9 @@ public class PacMan extends Entite implements KeyListener {
     private int vies;
     private int score;
     private boolean win;
+    private long timer, elapsed;
+    private boolean vDir;
+    private Direction dA, dirTmp;
     private Objet tmpObjet;
 
     public PacMan(Jeu _g, String _nom, int _x, int _y) {
@@ -22,7 +25,12 @@ public class PacMan extends Entite implements KeyListener {
         this.vies = 3;
         this.score = 0;
         this.win = false;
-        setSpawn(32+6, 32*4+6);
+        this.timer = 0;
+        this.elapsed = 0;
+        this.dirTmp = AUCUNE;
+        setSpawn(_x, _y);
+        dA = AUCUNE;
+        vDir = true;
     }
     
     public void mangerConsommable(Consommable o) {
@@ -41,28 +49,25 @@ public class PacMan extends Entite implements KeyListener {
                 break;
                 
             case "MUR":
-                setCollisionMur(true);
                 switch (getDirection()) {
                     case HAUT:
                         deplacerXY(0, vitesse);
-                        this.setDirection(AUCUNE);
                         break;
 
                     case BAS:
                         deplacerXY(0, -vitesse);
-                        this.setDirection(AUCUNE);
                         break;
 
                     case DROITE:
                         deplacerXY(-vitesse, 0);
-                        this.setDirection(AUCUNE);
                         break;
 
                     case GAUCHE:
                         deplacerXY(vitesse, 0);
-                        this.setDirection(AUCUNE);
                         break;
                 }
+                setDirection(dirTmp);
+                vDir = true;
                 break;
                 
             case "DOT":
@@ -80,9 +85,8 @@ public class PacMan extends Entite implements KeyListener {
     }
     
     @Override
-    public void evoluer(long dt) {       
+    public void evoluer(long dt) {
         if (!collisionMur) {
-            this.vitesse = 1;
             switch (getDirection()) {
                 case HAUT:
                     deplacerXY(0, -vitesse);
@@ -101,7 +105,16 @@ public class PacMan extends Entite implements KeyListener {
                     break;
             }
         }
-        collisionMur = false;
+        elapsed += dt;
+        if (vDir) {
+            dirTmp = dA;
+            vDir = false;
+        }
+        if (elapsed > timer+80) {
+            dirTmp = getDirection();
+            elapsed = timer;
+            setDirection(dA);
+        }
     }
 
     public void perdreVie() {
@@ -129,30 +142,34 @@ public class PacMan extends Entite implements KeyListener {
         {
             case KeyEvent.VK_LEFT:
                 setDirection(Direction.GAUCHE);
+                dA = Direction.GAUCHE;
                 break;
 
             case KeyEvent.VK_RIGHT:
                 setDirection(Direction.DROITE);
+                dA = Direction.DROITE;
                 break;
 
             case KeyEvent.VK_UP:
                 setDirection(Direction.HAUT);
+                dA = Direction.HAUT;
                 break;
 
             case KeyEvent.VK_DOWN:
                 setDirection(Direction.BAS);
+                dA = Direction.BAS;
                 break;
         }
     }
     
     @Override
     public void keyTyped(KeyEvent e) {
-    
+        
     }
     
     @Override
     public void keyReleased(KeyEvent e) {
-    
+        
     }
     
     @Override
