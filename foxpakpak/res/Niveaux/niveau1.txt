@@ -1,18 +1,16 @@
  
  
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM 
-MXXXXXMMXXXXXM 
-M MMMXXMMXMXMM 
-MXXXMMXXXXMXXX 
-MMMXXXMMMXMMMM 
-MDXXMXXXXXXFXM 
-MMMMMMMMMMMMMM 
-M                              M 
-M                              M 
-M                              M 
-M                              M 
-M                              M 
-M                              M 
+MXXXXXMMXXXXXM                 M 
+M MMMXXMMXMXMM                 M 
+MXXXMMXXXXMXXX                 M 
+MMMXXXMMMXMMMM                 M 
+MDXXMXXXXXXFXM                 M 
+MMMMMMMMMXMMMM                 M 
+M      M   M                   M 
+M      M   M                   M 
+M      M   M                   M 
+M      MMMMM                   M 
 M                              M 
 M                              M 
 M                              M 
