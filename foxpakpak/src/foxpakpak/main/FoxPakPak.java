@@ -6,7 +6,6 @@
 package foxpakpak.main;
 
 import foxpakpak.main.Game.Game;
-import foxpakpak.main.Game.Level.Level;
 
 /**
  *
@@ -27,5 +26,14 @@ public class FoxPakPak {
         myFoxPakPak.jouer();
     }
     
+    /*
+    A rendre :
+    - groupe
+    - zip avec :
+        - le code avec javadoc
+        - executable
+        - doc utilisateur
+        - doc installation
+    */
     
 }

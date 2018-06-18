@@ -9,8 +9,11 @@ abstract class Entite extends ObjetTouchable {
     
     int xSpawn, ySpawn;
     int vitesse;
-    private Direction direction, directionTMP;
+    Direction direction, directionTMP;
     boolean collisionMur;
+    long timer, elapsed;
+    boolean vDir;
+    Direction dA, dirTmp;
     
     /**
      * Construction d'un personnage
@@ -31,9 +34,8 @@ abstract class Entite extends ObjetTouchable {
     }
     
     @Override
-    public void evoluer(long dt) {
+    public void evoluer(long dt) {        
         if (!collisionMur) {
-            this.vitesse = 2;
             switch (getDirection()) {
                 case HAUT:
                     deplacerXY(0, -vitesse);
@@ -51,14 +53,45 @@ abstract class Entite extends ObjetTouchable {
                     deplacerXY(-vitesse, 0);
                     break;
             }
-        }      
-        
-        collisionMur = false;
+        }
+        timer += dt;
+        if (vDir) {
+            dirTmp = dA;
+            vDir = false;
+        }
+        if (elapsed > timer+200) {
+            dirTmp = getDirection();
+            elapsed = timer;
+            setDirection(dA);
+        }
     }
-    
-    @Override
-    public void effetCollision(Objet objet) {
 
+    @Override
+    public void effetCollision(Objet o) {
+        switch (o.getTypeObjet()) {
+                
+            case "MUR":
+                switch (getDirection()) {
+                    case HAUT:
+                        deplacerXY(0, vitesse);
+                        break;
+
+                    case BAS:
+                        deplacerXY(0, -vitesse);
+                        break;
+
+                    case DROITE:
+                        deplacerXY(-vitesse, 0);
+                        break;
+
+                    case GAUCHE:
+                        deplacerXY(vitesse, 0);
+                        break;
+                }
+                setDirection(dirTmp);
+                vDir = true;
+                break;
+        }
     }
     
     public int getVitesse() {
