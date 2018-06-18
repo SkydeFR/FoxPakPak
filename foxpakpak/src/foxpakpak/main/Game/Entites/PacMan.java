@@ -1,6 +1,7 @@
 package foxpakpak.main.Game.Entites;
 
 import foxpakpak.main.Game.Consumables.*;
+import foxpakpak.main.Game.Entites.Direction.*;
 import static foxpakpak.main.Game.Entites.Direction.*;
 import iut.Jeu;
 import iut.Objet;
