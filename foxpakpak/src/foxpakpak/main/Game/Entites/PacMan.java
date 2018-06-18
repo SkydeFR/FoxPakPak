@@ -1,7 +1,7 @@
 package foxpakpak.main.Game.Entites;
 
 import foxpakpak.main.Game.Consumables.*;
-import static foxpakpak.main.Game.Entites.Direction.AUCUNE;
+import static foxpakpak.main.Game.Entites.Direction.*;
 import iut.Jeu;
 import iut.Objet;
 
@@ -14,10 +14,9 @@ public class PacMan extends Entite implements KeyListener {
     private int vies;
     private int score;
     private boolean win;
-    private long timer, elapsed;
-    private boolean vDir;
-    private Direction dA, dirTmp;
     private Objet tmpObjet;
+    double tSprite, delaySprite;
+    int selectedSprite;
 
     public PacMan(Jeu _g, String _nom, int _x, int _y) {
         super(_g, _nom, _x, _y);
@@ -31,6 +30,9 @@ public class PacMan extends Entite implements KeyListener {
         setSpawn(_x, _y);
         dA = AUCUNE;
         vDir = true;
+        this.tSprite = 0;
+        this.delaySprite = 0;
+        this.selectedSprite = 1;
     }
     
     public void mangerConsommable(Consommable o) {
@@ -86,6 +88,45 @@ public class PacMan extends Entite implements KeyListener {
     
     @Override
     public void evoluer(long dt) {
+        tSprite += dt;
+        if (getDirection() == AUCUNE || getDirection() == DROITE) {
+            if (tSprite > delaySprite+200) {
+                delaySprite = tSprite;
+                selectedSprite++;
+                if (selectedSprite>3) {
+                    selectedSprite = 1;
+                }
+                this.changeSprite("Sprites/PacMan/PacMan_d"+selectedSprite);
+            } 
+        } else if (getDirection() == GAUCHE) {
+            if (tSprite > delaySprite+200) {
+                delaySprite = tSprite;
+                selectedSprite++;
+                if (selectedSprite>3) {
+                    selectedSprite = 1;
+                }
+                this.changeSprite("Sprites/PacMan/PacMan_g"+selectedSprite);
+            }
+        } else if (getDirection() == HAUT) {
+            if (tSprite > delaySprite+200) {
+                delaySprite = tSprite;
+                selectedSprite++;
+                if (selectedSprite>3) {
+                    selectedSprite = 1;
+                }
+                this.changeSprite("Sprites/PacMan/PacMan_h"+selectedSprite);
+            }
+        } else if (getDirection() == BAS) {
+            if (tSprite > delaySprite+200) {
+                delaySprite = tSprite;
+                selectedSprite++;
+                if (selectedSprite>3) {
+                    selectedSprite = 1;
+                }
+                this.changeSprite("Sprites/PacMan/PacMan_b"+selectedSprite);
+            }
+        }
+        
         if (!collisionMur) {
             switch (getDirection()) {
                 case HAUT:
