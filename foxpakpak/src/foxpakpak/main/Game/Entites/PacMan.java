@@ -1,7 +1,6 @@
 package foxpakpak.main.Game.Entites;
 
 import foxpakpak.main.Game.Consumables.*;
-import foxpakpak.main.Game.Entites.Direction.*;
 import static foxpakpak.main.Game.Entites.Direction.*;
 import iut.Jeu;
 import iut.Objet;
@@ -27,10 +26,12 @@ public class PacMan extends Entite implements KeyListener {
         this.win = false;
         this.timer = 0;
         this.elapsed = 0;
+        this.dA = AUCUNE;
+        this.vDir = true;
         this.dirTmp = AUCUNE;
+        setDirection(AUCUNE);
+        setVitesse(2);
         setSpawn(_x, _y);
-        dA = AUCUNE;
-        vDir = true;
         this.tSprite = 0;
         this.delaySprite = 0;
         this.selectedSprite = 1;
@@ -90,41 +91,42 @@ public class PacMan extends Entite implements KeyListener {
     @Override
     public void evoluer(long dt) {
         tSprite += dt;
-        if (getDirection() == AUCUNE || getDirection() == DROITE) {
-            if (tSprite > delaySprite+200) {
-                delaySprite = tSprite;
-                selectedSprite++;
-                if (selectedSprite>3) {
-                    selectedSprite = 1;
-                }
-                this.changeSprite("Sprites/PacMan/PacMan_d"+selectedSprite);
-            } 
-        } else if (getDirection() == GAUCHE) {
-            if (tSprite > delaySprite+200) {
-                delaySprite = tSprite;
-                selectedSprite++;
-                if (selectedSprite>3) {
-                    selectedSprite = 1;
-                }
-                this.changeSprite("Sprites/PacMan/PacMan_g"+selectedSprite);
-            }
-        } else if (getDirection() == HAUT) {
-            if (tSprite > delaySprite+200) {
-                delaySprite = tSprite;
-                selectedSprite++;
-                if (selectedSprite>3) {
-                    selectedSprite = 1;
-                }
-                this.changeSprite("Sprites/PacMan/PacMan_h"+selectedSprite);
-            }
-        } else if (getDirection() == BAS) {
-            if (tSprite > delaySprite+200) {
-                delaySprite = tSprite;
-                selectedSprite++;
-                if (selectedSprite>3) {
-                    selectedSprite = 1;
-                }
-                this.changeSprite("Sprites/PacMan/PacMan_b"+selectedSprite);
+        Boolean animation = tSprite > delaySprite+175;
+        if (getDirection() != null && animation) {
+            switch (getDirection()) {
+                case AUCUNE:
+                case DROITE:
+                    delaySprite = tSprite;
+                    selectedSprite++;
+                    if (selectedSprite>3) {
+                        selectedSprite = 1;
+                    }
+                    this.changeSprite("Sprites/PacMan/PacMan_d"+selectedSprite);
+                    break;
+                case GAUCHE:
+                    delaySprite = tSprite;
+                    selectedSprite++;
+                    if (selectedSprite>3) {
+                        selectedSprite = 1;
+                    }
+                    this.changeSprite("Sprites/PacMan/PacMan_g"+selectedSprite);
+                    break;
+                case HAUT:
+                    delaySprite = tSprite;
+                    selectedSprite++;
+                    if (selectedSprite>3) {
+                        selectedSprite = 1;
+                    }
+                    this.changeSprite("Sprites/PacMan/PacMan_h"+selectedSprite);
+                    break;
+                case BAS:
+                    delaySprite = tSprite;
+                    selectedSprite++;
+                    if (selectedSprite>3) {
+                        selectedSprite = 1;
+                    }
+                    this.changeSprite("Sprites/PacMan/PacMan_b"+selectedSprite);
+                    break;
             }
         }
         

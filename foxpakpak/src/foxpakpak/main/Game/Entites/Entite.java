@@ -97,6 +97,7 @@ abstract class Entite extends ObjetTouchable {
     public int getVitesse() {
         return vitesse;
     }
+    
     public void setVitesse(int vitesse) {
         this.vitesse = vitesse;
     }
