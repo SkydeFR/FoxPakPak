@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.game.Level;
+package foxpakpak.main.game.level;
 
 import java.util.ArrayList;
-import foxpakpak.main.Game.Consumables.Consommable;
-import foxpakpak.main.Game.Consumables.Dot;
-import foxpakpak.main.Game.Consumables.Fruit;
-import foxpakpak.main.Game.Consumables.SuperDot;
-import foxpakpak.main.Game.Level.Cases.*;
+import foxpakpak.main.game.consumables.Consommable;
+import foxpakpak.main.game.consumables.Dot;
+import foxpakpak.main.game.consumables.Fruit;
+import foxpakpak.main.game.consumables.SuperDot;
+import foxpakpak.main.game.level.cases.*;
 import iut.Jeu;
 
 import java.io.File;
