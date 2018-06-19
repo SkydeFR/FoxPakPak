@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.game.consumables;
+package foxpakpak.main.game1.consumables1;
 
 import iut.Jeu;
 

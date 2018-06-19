@@ -1,16 +1,16 @@
-package foxpakpak.main.game.entites;
+package foxpakpak.main.game1.entites1;
 
-import static foxpakpak.main.game.entites.Direction.*;
+import static foxpakpak.main.game1.entites1.Direction.*;
 import iut.Jeu;
 import iut.Objet;
 
-public class Ghost_Clyde extends Ghost {
+public class Ghost_Inky extends Ghost {
     
-    private int variableDeTravail = -1;
+    private int variableDeTravail = 1;
     private Direction directionsEnMemoire [] = {BAS,null,null,null};
     private boolean prochainATraiter[] = {true,true,false,false};
     
-    public Ghost_Clyde(Jeu _g, String _nom, int _x, int _y) {
+    public Ghost_Inky(Jeu _g, String _nom, int _x, int _y) {
         super(_g, _nom, _x, _y);
         this.timer = 0;
         this.elapsed = 0;
@@ -26,7 +26,7 @@ public class Ghost_Clyde extends Ghost {
     @Override
     public void effetCollision(Objet o) {
         switch (o.getTypeObjet()) {
-            case "MUR":              
+            case "MUR":               
                 switch (getDirection()) {
                     case HAUT:
                         deplacerXY(0, vitesse);
@@ -106,6 +106,7 @@ public class Ghost_Clyde extends Ghost {
                                     directionsEnMemoire[1] = GAUCHE;
                                     prochainATraiter[1] = false;
                                     prochainATraiter[3] = true;
+                                    
                                 }else{
                                     directionsEnMemoire[3] = GAUCHE;
                                     prochainATraiter[1] = true;
@@ -268,7 +269,7 @@ public class Ghost_Clyde extends Ghost {
         tSprite += dt;
         Boolean animation = tSprite > delaySprite+250;
         if (immunityState) {
-            this.changeSprite("Sprites/Ghosts/Clyde");
+            this.changeSprite("Sprites/Ghosts/Inky");
         } else {  
             if (animation) {
                 tSprite = delaySprite;
@@ -283,7 +284,7 @@ public class Ghost_Clyde extends Ghost {
         if (isReborn()){
             setDirection(BAS);
             setReborn(false);
-        } 
+        }      
         if ((posDroite() <= 23) && (posBasse() >= 379) && (posBasse() <= 415)){
             this.deplacerXY(1000-posDroite(), 0);
         }
@@ -331,7 +332,7 @@ public class Ghost_Clyde extends Ghost {
 
     @Override
     public String getTypeObjet() {
-        return "GHOST_CLYDE";
+        return "GHOST_INKY";
     }
     
 }

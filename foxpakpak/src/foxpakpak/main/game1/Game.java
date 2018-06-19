@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.Game;
+package foxpakpak.main.game1;
 
 import foxpakpak.main.game.entites.Ghost_Clyde;
 import foxpakpak.main.game.entites.Ghost_Inky;
@@ -11,7 +11,7 @@ import foxpakpak.main.game.entites.Ghost_Blinky;
 import foxpakpak.main.game.entites.Ghost;
 import foxpakpak.main.game.entites.Ghost_Pinky;
 import foxpakpak.main.game.entites.PacMan;
-import static foxpakpak.main.Game.Menus.*;
+import static foxpakpak.main.game1.Menus.*;
 
 import foxpakpak.main.game.level.Level;
 import foxpakpak.main.AudioThread;

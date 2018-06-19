@@ -1,11 +1,11 @@
-package foxpakpak.main.game.entites;
+package foxpakpak.main.game1.entites1;
 
 import foxpakpak.main.game.consumables.Consommable;
 import foxpakpak.main.game.consumables.SuperDot;
 import foxpakpak.main.game.consumables.Fruit;
 import foxpakpak.main.game.consumables.Dot;
-import static foxpakpak.main.game.entites.Direction.*;
-import foxpakpak.main.Game.Game;
+import static foxpakpak.main.game1.entites1.Direction.*;
+import foxpakpak.main.game1.Game;
 import iut.Jeu;
 import iut.Objet;
 
