@@ -8,6 +8,7 @@ public class Ghost extends Entite {
     protected boolean immunityState;
     protected int tSprite, delaySprite;
     protected boolean selectedSprite;
+    private boolean reborn = false;    
     
     public Ghost(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
@@ -31,5 +32,14 @@ public class Ghost extends Entite {
     public boolean getImmunityState() {
         return immunityState;
     }
+    
+    public void setReborn(boolean newValue){
+        this.reborn = newValue;
+    }
+
+    public boolean isReborn() {
+        return reborn;
+    }
+    
     
 }

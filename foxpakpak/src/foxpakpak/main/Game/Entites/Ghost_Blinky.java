@@ -9,6 +9,7 @@ public class Ghost_Blinky extends Ghost {
     private int variableDeTravail = 1;
     private Direction directionsEnMemoire [] = {HAUT,null,null,null};
     private boolean prochainATraiter[] = {true,true,false,false};
+
     
     public Ghost_Blinky(Jeu _g, String _nom, int _x, int _y) {
         super(_g, _nom, _x, _y);
@@ -283,7 +284,10 @@ public class Ghost_Blinky extends Ghost {
                 this.changeSprite("Sprites/Ghosts/EdibleState_2");
             }
         }
-        
+        if (isReborn()){
+            setDirection(HAUT);
+            setReborn(false);
+        }         
         if (!collisionMur) {
             this.vitesse = 1;
             switch (getDirection()) {
@@ -326,5 +330,8 @@ public class Ghost_Blinky extends Ghost {
     public String getTypeObjet() {
         return "GHOST_BLINKY";
     }
+
+
+    
     
 }

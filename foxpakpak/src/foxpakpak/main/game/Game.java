@@ -278,18 +278,22 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
         switch (name) {
             case "GHOST_BLINKY":
                 blinky.spawn();
+                blinky.setReborn(true);
                 blinky.setImmunityState(true);
                 break;
             case "GHOST_CLYDE":
                 clyde.spawn();
+                clyde.setReborn(true);
                 clyde.setImmunityState(true);
                 break;
             case "GHOST_INKY":
                 inky.spawn();
+                inky.setReborn(true);
                 inky.setImmunityState(true);
                 break;
             case "GHOST_PINKY":
                 pinky.spawn();
+                pinky.setReborn(true);
                 pinky.setImmunityState(true);
                 break;
         }

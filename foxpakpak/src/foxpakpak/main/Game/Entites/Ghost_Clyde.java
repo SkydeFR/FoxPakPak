@@ -26,7 +26,7 @@ public class Ghost_Clyde extends Ghost {
     @Override
     public void effetCollision(Objet o) {
         switch (o.getTypeObjet()) {
-            case "MUR":
+            case "MUR":              
                 switch (getDirection()) {
                     case HAUT:
                         deplacerXY(0, vitesse);
@@ -290,7 +290,10 @@ public class Ghost_Clyde extends Ghost {
                 this.changeSprite("Sprites/Ghosts/EdibleState_2");
             }
         }
-        
+        if (isReborn()){
+            setDirection(BAS);
+            setReborn(false);
+        }        
         if (!collisionMur) {
             this.vitesse = 1;
             switch (getDirection()) {
