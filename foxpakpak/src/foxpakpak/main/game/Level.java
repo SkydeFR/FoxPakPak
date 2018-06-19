@@ -53,10 +53,12 @@ public class Level {
                             cases.add(mur);
                             g.ajouter(mur);
                             break;
-                        case 'S':
+                        case ' ':
+                            /*
                             Sol sol = new Sol(g, "Sprites/Cases/Sol", x*32, y*32);
                             cases.add(sol);
                             g.ajouter(sol);
+                            */
                             break;
                             
                         /* CONSOMMABLES */
