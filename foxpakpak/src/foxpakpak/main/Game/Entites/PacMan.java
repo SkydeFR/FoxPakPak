@@ -210,6 +210,10 @@ public class PacMan extends Entite implements KeyListener {
         return score;
     }
     
+    public int getLvl() {
+        return lvl;
+    }
+    
     public boolean getWin() {
         return win;
     }
