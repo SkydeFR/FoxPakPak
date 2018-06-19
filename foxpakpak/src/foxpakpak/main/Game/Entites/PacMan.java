@@ -107,6 +107,16 @@ public class PacMan extends Entite implements KeyListener {
             case "FRUIT":
                 mangerConsommable((Fruit)o);
                 break;
+
+            case "TELEPORTEURDROIT":
+                setSpawn(o.posGauche(), o.posHaute());
+                spawn();
+                break;
+
+            case "TELEPORTEURGAUCHE":
+                setSpawn(o.posGauche(), o.posHaute());
+                spawn();
+                break;
         }
     }
     

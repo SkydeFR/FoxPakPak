@@ -12,6 +12,8 @@ import foxpakpak.main.Game.Consumables.Fruit;
 import foxpakpak.main.Game.Consumables.SuperDot;
 import foxpakpak.main.Game.Level.Cases.Sol;
 import foxpakpak.main.Game.Level.Cases.Mur;
+import foxpakpak.main.Game.Level.Cases.TeleporteurDroit;
+import foxpakpak.main.Game.Level.Cases.TeleporteurGauche;
 import iut.Jeu;
 
 import java.io.File;
@@ -45,6 +47,13 @@ public class Level {
                             break;
                         case 'S':
                             g.ajouter(new Sol(g, "Sprites/Cases/Sol", x*32, y*32));
+                            break;
+
+                        case 'R':
+                            g.ajouter(new TeleporteurDroit(g, "Sprites/Cases/Teleporteur", x*32, y*32));
+                            break;
+                        case 'L':
+                            g.ajouter(new TeleporteurGauche(g, "Sprites/Cases/Teleporteur", x*32, y*32));
                             break;
                             
                         /* CONSOMMABLES */
