@@ -75,7 +75,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     @Override
     protected void dessinerArrierePlan(Graphics g) {
         /* On affiche le curseur */
-        Cursor cursor=Cursor.getDefaultCursor();
+        Cursor cursor = Cursor.getDefaultCursor();
         this.setCursor(cursor);
         switch (menu) {
             case PRINCIPAL :
@@ -208,6 +208,11 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
             default :
                 System.out.println("Type de menu non implémenté");
         }
+    }
+    
+    
+    public void newLevel(int level) {
+        this.level.generateLevel(this, "res\\Levels\\lvl_"+level+".txt");
     }
     
     /**
