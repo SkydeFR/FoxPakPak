@@ -88,19 +88,16 @@ public class Ghost_Blinky extends Ghost {
                     case BAS:
                         deplacerXY(0, -vitesse);
                         if (!antiBoucle()){
-                            System.out.println("Pas de boucle");
                             if (this.variableDeTravail == 1){
                                 setDirection(DROITE);
                                 if (this.prochainATraiter[0] == true){
                                     directionsEnMemoire[0] = DROITE;
                                     prochainATraiter[0] = false;
                                     prochainATraiter[2] = true;
-                                    System.out.println("droite 1");
                                 } else{
                                     directionsEnMemoire[2] = DROITE;
                                     prochainATraiter[0] = true;
                                     prochainATraiter[2] = false;
-                                    System.out.println("droite 2");
                                 }
                             } else {
                                 setDirection(GAUCHE);
@@ -108,16 +105,13 @@ public class Ghost_Blinky extends Ghost {
                                     directionsEnMemoire[1] = GAUCHE;
                                     prochainATraiter[1] = false;
                                     prochainATraiter[3] = true;
-                                    System.out.println("gauche 1");
                                 } else{
                                     directionsEnMemoire[3] = GAUCHE;
                                     prochainATraiter[1] = true;
                                     prochainATraiter[3] = false;
-                                    System.out.println("gauche 2");
                                 }
                             }
                         } else {
-                            System.out.println("Boucle");
                             if (this.variableDeTravail == 1){
                                 setDirection(HAUT);
                                 if (this.prochainATraiter[0] == true){
@@ -258,10 +252,6 @@ public class Ghost_Blinky extends Ghost {
                         this.variableDeTravail = -1*this.variableDeTravail;  
                         break;
                 }
-                //setDirection(dirTmp);
-                //System.out.println(this.variableDeTravail);
-                //System.out.println("A traiter : "+ prochainATraiter[0] + ", "+ prochainATraiter[1] + ", "+prochainATraiter[2] + ", "+prochainATraiter[3]);
-                //System.out.println("Deplacement en mémoire : "+directionsEnMemoire[0] + ", "+directionsEnMemoire[1] + ", "+directionsEnMemoire[2] + ", "+directionsEnMemoire[3]);
                 vDir = true;
                 break;
         }
