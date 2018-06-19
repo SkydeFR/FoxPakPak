@@ -58,20 +58,6 @@ public class Level {
                             cases.add(sol);
                             g.ajouter(sol);
                             break;
-<<<<<<< HEAD
-=======
-
-                        case 'R':
-                            TeleporteurDroit teleporteurDroit = new TeleporteurDroit(g, "Sprites/Cases/Teleporteur", x*32, y*32);
-                            cases.add(teleporteurDroit);
-                            g.ajouter(teleporteurDroit);
-                            break;
-                        case 'L':
-                            TeleporteurGauche teleporteurGauche = new TeleporteurGauche(g, "Sprites/Cases/Teleporteur", x*32, y*32);
-                            cases.add(teleporteurGauche);
-                            g.ajouter(teleporteurGauche);
-                            break;
->>>>>>> 43545fcba31f3c08640bc8fb13ab477a2e881802
                             
                         /* CONSOMMABLES */
                         case 'X':
