@@ -5,11 +5,9 @@ import iut.Jeu;
 
 public class Ghost extends Entite {
 
-    private boolean edible;
-
     public Ghost(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
-        setDirection(DROITE);
+        setDirection(AUCUNE);
         setVitesse(2);
     }
 
@@ -17,6 +15,5 @@ public class Ghost extends Entite {
     public String getTypeObjet() {
         return "GHOST";
     }
-
-
+    
 }

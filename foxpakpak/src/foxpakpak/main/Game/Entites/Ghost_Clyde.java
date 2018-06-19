@@ -1,4 +1,11 @@
 package foxpakpak.main.Game.Entites;
 
-public class Ghost_Clyde {
+import iut.Jeu;
+
+public class Ghost_Clyde extends Ghost {
+
+    public Ghost_Clyde(Jeu g, String nom, int x, int y) {
+        super(g, nom, x, y);
+    }
+    
 }

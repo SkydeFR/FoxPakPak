@@ -59,7 +59,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     protected void creeObjets() {
         this.level = new Level();
         this.player = new PacMan(this,"Sprites/PacMan/PacMan_d1", 32+1, 32*4+6);
-        this.blinky = new Ghost(this,"Sprites/Ghosts/Blinky", 255, 100);
+        this.blinky = new Ghost_Blinky(this,"Sprites/Ghosts/Blinky", 255, 100);
         this.pinky = new Ghost(this,"Sprites/Ghosts/Pinky", 200, 100);
         this.inky = new Ghost(this,"Sprites/Ghosts/Inky", 150, 100);
         this.clyde = new Ghost(this,"Sprites/Ghosts/Clyde", 100, 100);    
@@ -161,7 +161,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 
                 /* Générer le niveau */
                 if (newGame) {
-                    //this.ajouter(blinky);
+                    this.ajouter(blinky);
                     //this.ajouter(pinky);
                     //this.ajouter(inky);
                     //this.ajouter(clyde);
