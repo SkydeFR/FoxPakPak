@@ -26,14 +26,4 @@ public class FoxPakPak {
         myFoxPakPak.jouer();
     }
     
-    /*
-    A rendre :
-    - groupe
-    - zip avec :
-        - le code avec javadoc
-        - executable
-        - doc utilisateur
-        - doc installation
-    */
-    
 }
