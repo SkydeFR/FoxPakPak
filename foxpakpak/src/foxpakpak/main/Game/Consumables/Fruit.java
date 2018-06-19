@@ -13,6 +13,8 @@ import iut.Jeu;
  */
 public class Fruit extends Consommable {
     
+    private String fruit;
+    
     /**
      * Construction d'un fruit
      * @param g : l'interface graphique
@@ -22,7 +24,24 @@ public class Fruit extends Consommable {
      */
     public Fruit(Jeu g, String nom, int x, int y) {
         super(g, nom, x, y);
-        this.scorePts = 100;
+        int random = (int)(1+Math.random()*3);
+        switch (random) {
+            case 1:
+                this.changeSprite("Sprites/Consumables/Cerise");
+                this.fruit = "CERISE";
+                this.scorePts = 50;
+                break;
+            case 2:
+                this.changeSprite("Sprites/Consumables/Orange");
+                this.fruit = "ORANGE";
+                this.scorePts = 100;
+                break;
+            case 3:
+                this.changeSprite("Sprites/Consumables/Fraise");
+                this.fruit = "FRAISE";
+                this.scorePts = 150;
+                break;
+        }
     }
     
     @Override
