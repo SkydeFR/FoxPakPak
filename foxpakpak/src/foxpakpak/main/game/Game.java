@@ -167,7 +167,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 /* Générer le niveau */
                 if (newGame) {
                     this.ajouteEcouteurClavier(player);
-                    this.level.generateLevel(this, "res\\Levels\\lvl_1.txt");
+                    this.level.generateLevel(this, "levels/lvl_1.txt");
                     this.ajouter(blinky);
                     this.ajouter(pinky);
                     this.ajouter(inky);
@@ -224,7 +224,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
         clyde.spawn();
         inky.spawn();
         pinky.spawn();
-        this.level.generateLevel(this, "res\\Levels\\lvl_"+level+".txt");
+        this.level.generateLevel(this, "levels/lvl_"+level+".txt");
     }
     
     public int getNbConsumables() {
