@@ -10,6 +10,7 @@ import static foxpakpak.main.Game.Menus.*;
 import foxpakpak.main.Game.Entites.*;
 import foxpakpak.main.Game.Level.Level;
 import foxpakpak.main.AudioThread;
+import foxpakpak.main.Game.Level.Cases.Case;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -18,6 +19,7 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -75,7 +77,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     @Override
     protected void dessinerArrierePlan(Graphics g) {
         /* On affiche le curseur */
-        Cursor cursor=Cursor.getDefaultCursor();
+        Cursor cursor = Cursor.getDefaultCursor();
         this.setCursor(cursor);
         switch (menu) {
             case PRINCIPAL :
@@ -210,6 +212,22 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
         }
     }
     
+    public void newLevel(int level) {
+        for (Case c : this.level.getCases()) {
+            this.supprimer(c);
+        }
+        player.spawn();
+        blinky.spawn();
+        clyde.spawn();
+        inky.spawn();
+        pinky.spawn();
+        this.level.generateLevel(this, "res\\Levels\\lvl_"+level+".txt");
+    }
+    
+    public int getNbConsumables() {
+        return this.level.getNbConsumables();
+    }
+    
     /**
      * Fonction appelle lors d'un clic souris
      * @param e : l'evenement souris
@@ -273,23 +291,15 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
         switch (name) {
             case "GHOST_BLINKY":
                 blinky.spawn();
-                blinky.setReborn(true);
-                blinky.setImmunityState(true);
                 break;
             case "GHOST_CLYDE":
                 clyde.spawn();
-                clyde.setReborn(true);
-                clyde.setImmunityState(true);
                 break;
             case "GHOST_INKY":
                 inky.spawn();
-                inky.setReborn(true);
-                inky.setImmunityState(true);
                 break;
             case "GHOST_PINKY":
                 pinky.spawn();
-                pinky.setReborn(true);
-                pinky.setImmunityState(true);
                 break;
         }
     }
@@ -304,7 +314,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     }
 
     /**
-     * Fonction appelee lorsque pacman finit le niveau
+     * Fonction appelee lorsque pacman finit les 3 premiers niveaux !
      */
     @Override
     protected void gagne() {

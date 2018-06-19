@@ -15,6 +15,7 @@ public class PacMan extends Entite implements KeyListener {
     private int vies;
     private int score;
     private int lvl;
+    private int nbConsumables;
     private boolean win;
     private boolean superDot;
     private double tSuperDot;
@@ -27,6 +28,7 @@ public class PacMan extends Entite implements KeyListener {
         this.vies = 3;
         this.score = 0;
         this.lvl = 1;
+        this.nbConsumables = -1;
         this.win = false;
         this.superDot = false;
         this.tSuperDot = 0;
@@ -91,10 +93,12 @@ public class PacMan extends Entite implements KeyListener {
                 
             case "DOT":
                 mangerConsommable((Dot)o);
+                nbConsumables--;
                 break;
                 
             case "SUPERDOT":
                 mangerConsommable((SuperDot)o);
+                nbConsumables--;
                 setVitesse(3);
                 superDot = true;
                 tSuperDot = 10000;
@@ -106,6 +110,7 @@ public class PacMan extends Entite implements KeyListener {
                 
             case "FRUIT":
                 mangerConsommable((Fruit)o);
+                nbConsumables--;
                 break;
 
         }
@@ -113,6 +118,20 @@ public class PacMan extends Entite implements KeyListener {
     
     @Override
     public void evoluer(long dt) {
+        if (nbConsumables == -1) {
+            this.nbConsumables = g.getNbConsumables();
+        } else if (nbConsumables <= 0) {
+            lvl++;
+            
+            //Si on a fini les 3 premiers niveaux alors on a gagné
+            if (lvl == 4) {
+                win = true;
+            } else {
+                g.newLevel(lvl);
+                nbConsumables = g.getNbConsumables();
+            }
+        }
+        
         tSprite += dt;
         Boolean animation = tSprite > delaySprite+175;
         if (getDirection() != null && animation) {
