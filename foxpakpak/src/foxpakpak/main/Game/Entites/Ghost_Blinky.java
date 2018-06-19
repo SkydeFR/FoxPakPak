@@ -69,13 +69,13 @@ public class Ghost_Blinky extends Ghost {
                                 }
                             }
                             else {
-                                setDirection(GAUCHE);
+                                setDirection(HAUT);
                                 if (this.prochainATraiter[1] == true){
-                                    directionsEnMemoire[1] = BAS; //a voir si c'est gauche ou haut
+                                    directionsEnMemoire[1] = HAUT; //a voir si c'est gauche ou haut
                                     prochainATraiter[1] = false;
                                     prochainATraiter[3] = true;
                                 }else{
-                                    directionsEnMemoire[3] = BAS;
+                                    directionsEnMemoire[3] = HAUT;
                                     prochainATraiter[1] = true;
                                     prochainATraiter[3] = false;
                                 }
@@ -132,13 +132,13 @@ public class Ghost_Blinky extends Ghost {
                                 }
                             }
                             else {
-                                setDirection(HAUT);
+                                setDirection(BAS);
                                 if (this.prochainATraiter[1] == true){
-                                    directionsEnMemoire[1] = HAUT; //a voir si c'est gauche ou haut
+                                    directionsEnMemoire[1] = BAS; //a voir si c'est gauche ou haut
                                     prochainATraiter[1] = false;
                                     prochainATraiter[3] = true;
                                 }else{
-                                    directionsEnMemoire[3] = HAUT;
+                                    directionsEnMemoire[3] = BAS;
                                     prochainATraiter[1] = true;
                                     prochainATraiter[3] = false;
                                 }
@@ -177,13 +177,13 @@ public class Ghost_Blinky extends Ghost {
                             }
                         }else {
                             if (this.variableDeTravail == 1){
-                                setDirection(GAUCHE);
+                                setDirection(DROITE);
                                 if (this.prochainATraiter[0] == true){
-                                    directionsEnMemoire[0] = GAUCHE;
+                                    directionsEnMemoire[0] = DROITE;
                                     prochainATraiter[0] = false;
                                     prochainATraiter[2] = true;
                                 }else{
-                                    directionsEnMemoire[2] = GAUCHE;
+                                    directionsEnMemoire[2] = DROITE;
                                     prochainATraiter[0] = true;
                                     prochainATraiter[2] = false;
                                 }
@@ -235,19 +235,19 @@ public class Ghost_Blinky extends Ghost {
                             }
                         }else {
                             if (this.variableDeTravail == 1){
-                                setDirection(DROITE);
+                                setDirection(GAUCHE);
                                 if (this.prochainATraiter[0] == true){
-                                    directionsEnMemoire[0] = DROITE;
+                                    directionsEnMemoire[0] = GAUCHE;
                                     prochainATraiter[0] = false;
                                     prochainATraiter[2] = true;
                                 }else{
-                                    directionsEnMemoire[2] = DROITE;
+                                    directionsEnMemoire[2] = GAUCHE;
                                     prochainATraiter[0] = true;
                                     prochainATraiter[2] = false;
                                 }
                             }
                             else {
-                                setDirection(GAUCHE);
+                                setDirection(DROITE);
                                 if (this.prochainATraiter[1] == true){
                                     directionsEnMemoire[1] = DROITE; //a voir si c'est gauche ou haut
                                     prochainATraiter[1] = false;
