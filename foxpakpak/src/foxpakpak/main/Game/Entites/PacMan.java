@@ -68,7 +68,7 @@ public class PacMan extends Entite implements KeyListener {
                     perdreVie();
                 } else {
                     g.eatGhost(o.getTypeObjet());
-                    score += 250;
+                    score += 200;
                 }
                 break;
                 
