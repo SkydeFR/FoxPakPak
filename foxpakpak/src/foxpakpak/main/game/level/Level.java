@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.Game.Level;
+package foxpakpak.main.game.level;
 
 import java.util.ArrayList;
-import foxpakpak.main.Game.Consumables.Consommable;
-import foxpakpak.main.Game.Consumables.Dot;
-import foxpakpak.main.Game.Consumables.Fruit;
-import foxpakpak.main.Game.Consumables.SuperDot;
-import foxpakpak.main.Game.Level.Cases.Case;
-import foxpakpak.main.Game.Level.Cases.Sol;
-import foxpakpak.main.Game.Level.Cases.Mur;
+import foxpakpak.main.game.consumables.Consommable;
+import foxpakpak.main.game.consumables.Dot;
+import foxpakpak.main.game.consumables.Fruit;
+import foxpakpak.main.game.consumables.SuperDot;
+import foxpakpak.main.game.level.cases.*;
 import iut.Jeu;
 
 import java.io.File;
@@ -53,10 +51,12 @@ public class Level {
                             cases.add(mur);
                             g.ajouter(mur);
                             break;
-                        case 'S':
+                        case ' ':
+                            /*
                             Sol sol = new Sol(g, "Sprites/Cases/Sol", x*32, y*32);
                             cases.add(sol);
                             g.ajouter(sol);
+                            */
                             break;
                             
                         /* CONSOMMABLES */

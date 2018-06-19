@@ -5,12 +5,17 @@
  */
 package foxpakpak.main.Game;
 
+import foxpakpak.main.game.entites.Ghost_Clyde;
+import foxpakpak.main.game.entites.Ghost_Inky;
+import foxpakpak.main.game.entites.Ghost_Blinky;
+import foxpakpak.main.game.entites.Ghost;
+import foxpakpak.main.game.entites.Ghost_Pinky;
+import foxpakpak.main.game.entites.PacMan;
 import static foxpakpak.main.Game.Menus.*;
 
-import foxpakpak.main.Game.Entites.*;
-import foxpakpak.main.Game.Level.Level;
+import foxpakpak.main.game.level.Level;
 import foxpakpak.main.AudioThread;
-import foxpakpak.main.Game.Level.Cases.Case;
+import foxpakpak.main.game.level.cases.Case;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -19,7 +24,6 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
