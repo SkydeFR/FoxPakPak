@@ -62,7 +62,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
         this.blinky = new Ghost_Blinky(this,"Sprites/Ghosts/Blinky", 32*15+1, 32*12);
         this.pinky = new Ghost_Pinky(this,"Sprites/Ghosts/Pinky", 32*15+1, 32*13+9);
         this.inky = new Ghost_Inky(this,"Sprites/Ghosts/Inky", 32*15+1, 32*13+9+18);
-        this.clyde = new Ghost(this,"Sprites/Ghosts/Clyde", 100, 100);    
+        this.clyde = new Ghost_Clyde(this,"Sprites/Ghosts/Clyde", 32*15+1, 32*13+18+18);    
         AudioThread mySound = new AudioThread("Music/background_music");
         Thread t = new Thread(mySound);
         t.start();
@@ -163,8 +163,8 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 if (newGame) {
                     this.ajouter(blinky);
                     this.ajouter(pinky);
-                    //this.ajouter(inky);
-                    //this.ajouter(clyde);
+                    this.ajouter(inky);
+                    this.ajouter(clyde);
                     this.ajouter(player);
                     this.ajouteEcouteurClavier(player);
                     this.level.generateLevel(this, "res\\Levels\\lvl_1.txt");
