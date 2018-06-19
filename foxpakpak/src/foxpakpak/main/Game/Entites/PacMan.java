@@ -86,6 +86,7 @@ public class PacMan extends Entite implements KeyListener {
                 
             case "SUPERDOT":
                 mangerConsommable((SuperDot)o);
+                setVitesse(3);
                 superDot = true;
                 tSuperDot = 10000;
                 break;
@@ -157,6 +158,7 @@ public class PacMan extends Entite implements KeyListener {
         if (superDot) {
             tSuperDot -= dt;
             if (tSuperDot <= 0) {
+                setVitesse(2);
                 superDot = false;
                 tSuperDot = 0;
             }
