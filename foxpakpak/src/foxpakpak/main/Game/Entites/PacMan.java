@@ -108,15 +108,6 @@ public class PacMan extends Entite implements KeyListener {
                 mangerConsommable((Fruit)o);
                 break;
 
-            case "TELEPORTEURDROIT":
-                setSpawn(o.posGauche(), o.posHaute());
-                spawn();
-                break;
-
-            case "TELEPORTEURGAUCHE":
-                setSpawn(o.posGauche(), o.posHaute());
-                spawn();
-                break;
         }
     }
     
@@ -189,6 +180,15 @@ public class PacMan extends Entite implements KeyListener {
                 g.changeImmunityState("GHOST_INKY",true);
                 g.changeImmunityState("GHOST_PINKY",true);
             }
+        }
+        
+        
+        if ((posDroite() <= 23) && (posBasse() >= 379) && (posBasse() <= 415)){
+            this.deplacerXY(1000-posDroite(), 0);
+        }
+        
+        if ((posDroite() >= 1031) && (posBasse() >= 379) && (posBasse() <= 415)){
+            this.deplacerXY(23-posDroite(), 0);
         }
         
         if (!collisionMur) {

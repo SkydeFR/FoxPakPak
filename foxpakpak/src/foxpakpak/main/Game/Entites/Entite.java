@@ -34,7 +34,10 @@ abstract class Entite extends ObjetTouchable {
     }
     
     @Override
-    public void evoluer(long dt) {        
+    public void evoluer(long dt) {     
+        
+        
+        
         if (!collisionMur) {
             switch (getDirection()) {
                 case HAUT:
@@ -119,5 +122,7 @@ abstract class Entite extends ObjetTouchable {
         xSpawn = x;
         ySpawn = y;
     }
+    
+
     
 }

@@ -293,7 +293,14 @@ public class Ghost_Inky extends Ghost {
         if (isReborn()){
             setDirection(BAS);
             setReborn(false);
-        }         
+        }      
+        if ((posDroite() <= 23) && (posBasse() >= 379) && (posBasse() <= 415)){
+            this.deplacerXY(1000-posDroite(), 0);
+        }
+        
+        if ((posDroite() >= 1031) && (posBasse() >= 379) && (posBasse() <= 415)){
+            this.deplacerXY(23-posDroite(), 0);
+        }        
         if (!collisionMur) {
             this.vitesse = 1;
             switch (getDirection()) {
