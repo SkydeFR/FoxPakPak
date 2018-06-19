@@ -1,4 +1,4 @@
-package foxpakpak.main.game1.entites1;
+package foxpakpak.main.game.entites;
 
 public enum Direction {
     HAUT,

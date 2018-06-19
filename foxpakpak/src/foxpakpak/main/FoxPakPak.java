@@ -5,7 +5,7 @@
  */
 package foxpakpak.main;
 
-import foxpakpak.main.Game.Game;
+import foxpakpak.main.game.Game;
 
 /**
  *

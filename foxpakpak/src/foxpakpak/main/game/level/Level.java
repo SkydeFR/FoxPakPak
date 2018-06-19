@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foxpakpak.main.game1.level1;
+package foxpakpak.main.game.level;
 
 import java.util.ArrayList;
 import foxpakpak.main.game.consumables.Consommable;

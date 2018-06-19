@@ -1,6 +1,7 @@
-package foxpakpak.main.game1.entites1;
+package foxpakpak.main.game.entites;
 
-import static foxpakpak.main.game1.entites1.Direction.*;
+import foxpakpak.main.game.entites.Direction;
+import static foxpakpak.main.game.entites.Direction.*;
 import iut.Jeu;
 import iut.Objet;
 import iut.ObjetTouchable;
