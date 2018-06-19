@@ -18,7 +18,7 @@ public class Ghost_Clyde extends Ghost {
         this.vDir = true;
         this.dirTmp = DROITE;
         setDirection(BAS);
-        setVitesse(1);
+        setVitesse(2);
         setSpawn(_x, _y);
         directionsEnMemoire[0]=BAS;
     }

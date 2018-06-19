@@ -13,17 +13,23 @@ public class PacMan extends Entite implements KeyListener {
     private Jeu g;
     private int vies;
     private int score;
+    private int lvl;
     private boolean win;
+    private boolean superDot;
+    private double tSuperDot;
     private Objet tmpObjet;
-    double tSprite, delaySprite;
-    int selectedSprite;
+    private double tSprite, delaySprite;
+    private int selectedSprite;
 
     public PacMan(Jeu _g, String _nom, int _x, int _y) {
         super(_g, _nom, _x, _y);
         this.g = _g;
         this.vies = 3;
         this.score = 0;
+        this.lvl = 1;
         this.win = false;
+        this.superDot = false;
+        this.tSuperDot = 0;
         this.timer = 0;
         this.elapsed = 0;
         this.dA = AUCUNE;
@@ -80,6 +86,9 @@ public class PacMan extends Entite implements KeyListener {
                 
             case "SUPERDOT":
                 mangerConsommable((SuperDot)o);
+                setVitesse(3);
+                superDot = true;
+                tSuperDot = 10000;
                 break;
                 
             case "FRUIT":
@@ -111,7 +120,11 @@ public class PacMan extends Entite implements KeyListener {
                     if (selectedSprite>3) {
                         selectedSprite = 1;
                     }
-                    this.changeSprite("Sprites/PacMan/PacMan_d"+selectedSprite);
+                    if (superDot) {
+                        this.changeSprite("Sprites/PacMan/super/PacMan_d"+selectedSprite);
+                    } else {
+                        this.changeSprite("Sprites/PacMan/normal/PacMan_d"+selectedSprite);
+                    }
                     break;
                 case GAUCHE:
                     delaySprite = tSprite;
@@ -119,7 +132,11 @@ public class PacMan extends Entite implements KeyListener {
                     if (selectedSprite>3) {
                         selectedSprite = 1;
                     }
-                    this.changeSprite("Sprites/PacMan/PacMan_g"+selectedSprite);
+                    if (superDot) {
+                        this.changeSprite("Sprites/PacMan/super/PacMan_g"+selectedSprite);
+                    } else {
+                        this.changeSprite("Sprites/PacMan/normal/PacMan_g"+selectedSprite);
+                    }
                     break;
                 case HAUT:
                     delaySprite = tSprite;
@@ -127,7 +144,11 @@ public class PacMan extends Entite implements KeyListener {
                     if (selectedSprite>3) {
                         selectedSprite = 1;
                     }
-                    this.changeSprite("Sprites/PacMan/PacMan_h"+selectedSprite);
+                    if (superDot) {
+                        this.changeSprite("Sprites/PacMan/super/PacMan_h"+selectedSprite);
+                    } else {
+                        this.changeSprite("Sprites/PacMan/normal/PacMan_h"+selectedSprite);
+                    }
                     break;
                 case BAS:
                     delaySprite = tSprite;
@@ -135,8 +156,21 @@ public class PacMan extends Entite implements KeyListener {
                     if (selectedSprite>3) {
                         selectedSprite = 1;
                     }
-                    this.changeSprite("Sprites/PacMan/PacMan_b"+selectedSprite);
+                    if (superDot) {
+                        this.changeSprite("Sprites/PacMan/super/PacMan_b"+selectedSprite);
+                    } else {
+                        this.changeSprite("Sprites/PacMan/normal/PacMan_b"+selectedSprite);
+                    }
                     break;
+            }
+        }
+        
+        if (superDot) {
+            tSuperDot -= dt;
+            if (tSuperDot <= 0) {
+                setVitesse(2);
+                superDot = false;
+                tSuperDot = 0;
             }
         }
         
@@ -184,6 +218,10 @@ public class PacMan extends Entite implements KeyListener {
     
     public int getScore() {
         return score;
+    }
+    
+    public int getLvl() {
+        return lvl;
     }
     
     public boolean getWin() {

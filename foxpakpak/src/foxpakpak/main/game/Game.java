@@ -58,7 +58,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     @Override
     protected void creeObjets() {
         this.level = new Level();
-        this.player = new PacMan(this,"Sprites/PacMan/PacMan_d1", 32+1, 32*4+6);
+        this.player = new PacMan(this,"Sprites/PacMan/normal/PacMan_d1", 32+1, 32*4+6);
         this.blinky = new Ghost_Blinky(this,"Sprites/Ghosts/Blinky", 32*15+1, 32*12);
         this.pinky = new Ghost_Pinky(this,"Sprites/Ghosts/Pinky", 32*15+1, 32*13+9);
         this.inky = new Ghost_Inky(this,"Sprites/Ghosts/Inky", 32*15+1, 32*13+9+18);
@@ -189,13 +189,21 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 g.setFont(new Font("TimesRoman", Font.PLAIN, 18));
                 g.drawString(String.valueOf(player.getVie()),175,40);
                 
+                /* Afficher niveau */
+                g.setColor(Color.ORANGE);
+                g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+                g.drawString("Niveau : ",200+40,40);
+                g.setColor(Color.BLUE);
+                g.setFont(new Font("TimesRoman", Font.PLAIN, 18));
+                g.drawString(String.valueOf(player.getLvl()),205+110,40);
+                
                 /* Afficher score */
                 g.setColor(Color.ORANGE);
                 g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-                g.drawString("Score : ",200+40,40);
+                g.drawString("Score : ",340+40,40);
                 g.setColor(Color.YELLOW);
                 g.setFont(new Font("TimesRoman", Font.PLAIN, 18));
-                g.drawString(String.valueOf(player.getScore()),200+110,40);
+                g.drawString(String.valueOf(player.getScore()),342+110,40);
                 break;
             default :
                 System.out.println("Type de menu non implémenté");

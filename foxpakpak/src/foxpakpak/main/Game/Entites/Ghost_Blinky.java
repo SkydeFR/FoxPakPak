@@ -18,7 +18,7 @@ public class Ghost_Blinky extends Ghost {
         this.vDir = true;
         this.dirTmp = DROITE;
         setDirection(HAUT);
-        setVitesse(1);
+        setVitesse(2);
         setSpawn(_x, _y);
         directionsEnMemoire[0]=HAUT;
     }
