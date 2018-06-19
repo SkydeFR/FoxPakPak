@@ -274,7 +274,23 @@ public class Ghost_Pinky extends Ghost {
     }    
      
     @Override
-    public void evoluer(long dt) {       
+    public void evoluer(long dt) {
+        tSprite += dt;
+        Boolean animation = tSprite > delaySprite+250;
+        if (immunityState) {
+            this.changeSprite("Sprites/Ghosts/Pinky");
+        } else {  
+            if (animation) {
+                tSprite = delaySprite;
+                selectedSprite = !selectedSprite;
+            }
+            if (selectedSprite) {
+                this.changeSprite("Sprites/Ghosts/EdibleState_1");
+            } else {
+                this.changeSprite("Sprites/Ghosts/EdibleState_2");
+            }
+        }
+        
         if (!collisionMur) {
             this.vitesse = 1;
             switch (getDirection()) {
@@ -312,4 +328,10 @@ public class Ghost_Pinky extends Ghost {
         }
         return rep;
     }
+
+    @Override
+    public String getTypeObjet() {
+        return "GHOST_PINKY";
+    }
+    
 }

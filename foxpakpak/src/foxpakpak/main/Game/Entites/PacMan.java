@@ -2,6 +2,7 @@ package foxpakpak.main.Game.Entites;
 
 import foxpakpak.main.Game.Consumables.*;
 import static foxpakpak.main.Game.Entites.Direction.*;
+import foxpakpak.main.Game.Game;
 import iut.Jeu;
 import iut.Objet;
 
@@ -10,7 +11,7 @@ import java.awt.event.KeyListener;
 
 public class PacMan extends Entite implements KeyListener {
     
-    private Jeu g;
+    private Game g;
     private int vies;
     private int score;
     private int lvl;
@@ -23,7 +24,6 @@ public class PacMan extends Entite implements KeyListener {
 
     public PacMan(Jeu _g, String _nom, int _x, int _y) {
         super(_g, _nom, _x, _y);
-        this.g = _g;
         this.vies = 3;
         this.score = 0;
         this.lvl = 1;
@@ -41,6 +41,7 @@ public class PacMan extends Entite implements KeyListener {
         this.tSprite = 0;
         this.delaySprite = 0;
         this.selectedSprite = 1;
+        this.g = (Game)_g;
     }
     
     public void mangerConsommable(Consommable o) {
@@ -54,8 +55,16 @@ public class PacMan extends Entite implements KeyListener {
     @Override
     public void effetCollision(Objet o) {
         switch (o.getTypeObjet()) {
-            case "GHOST":
-                perdreVie();
+            case "GHOST_BLINKY":
+            case "GHOST_CLYDE":
+            case "GHOST_INKY":
+            case "GHOST_PINKY":
+                if (g.checkImmunityState(o.getTypeObjet())) {
+                    perdreVie();
+                } else {
+                    g.eatGhost(o.getTypeObjet());
+                    score += 250;
+                }
                 break;
                 
             case "MUR":
@@ -89,6 +98,10 @@ public class PacMan extends Entite implements KeyListener {
                 setVitesse(3);
                 superDot = true;
                 tSuperDot = 10000;
+                g.changeImmunityState("GHOST_BLINKY", false);
+                g.changeImmunityState("GHOST_CLYDE", false);
+                g.changeImmunityState("GHOST_INKY", false);
+                g.changeImmunityState("GHOST_PINKY", false);
                 break;
                 
             case "FRUIT":
@@ -161,6 +174,10 @@ public class PacMan extends Entite implements KeyListener {
                 setVitesse(2);
                 superDot = false;
                 tSuperDot = 0;
+                g.changeImmunityState("GHOST_BLINKY",true);
+                g.changeImmunityState("GHOST_CLYDE",true);
+                g.changeImmunityState("GHOST_INKY",true);
+                g.changeImmunityState("GHOST_PINKY",true);
             }
         }
         

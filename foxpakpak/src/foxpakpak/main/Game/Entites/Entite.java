@@ -7,13 +7,13 @@ import iut.ObjetTouchable;
 
 abstract class Entite extends ObjetTouchable {
     
-    int xSpawn, ySpawn;
-    int vitesse;
-    Direction direction, directionTMP;
-    boolean collisionMur;
-    long timer, elapsed;
-    boolean vDir;
-    Direction dA, dirTmp;
+    protected int xSpawn, ySpawn;
+    protected int vitesse;
+    protected Direction direction, directionTMP;
+    protected boolean collisionMur;
+    protected long timer, elapsed;
+    protected boolean vDir;
+    protected Direction dA, dirTmp;
     
     /**
      * Construction d'un personnage

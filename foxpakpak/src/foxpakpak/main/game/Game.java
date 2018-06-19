@@ -161,13 +161,13 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 
                 /* Générer le niveau */
                 if (newGame) {
+                    this.ajouteEcouteurClavier(player);
+                    this.level.generateLevel(this, "res\\Levels\\lvl_1.txt");
                     this.ajouter(blinky);
                     this.ajouter(pinky);
                     this.ajouter(inky);
                     this.ajouter(clyde);
                     this.ajouter(player);
-                    this.ajouteEcouteurClavier(player);
-                    this.level.generateLevel(this, "res\\Levels\\lvl_1.txt");
                     newGame = false;
                 }
                 
@@ -234,6 +234,58 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                 break;
             case MouseEvent.BUTTON3 :
                 //System.out.println("Click 3");
+                break;
+        }
+    }
+    
+    public void changeImmunityState(String name, boolean state) {
+        switch (name) {
+            case "GHOST_BLINKY":
+                blinky.setImmunityState(state);
+                break;
+            case "GHOST_CLYDE":
+                clyde.setImmunityState(state);
+                break;
+            case "GHOST_INKY":
+                inky.setImmunityState(state);
+                break;
+            case "GHOST_PINKY":
+                pinky.setImmunityState(state);
+                break;
+        }
+    }
+    
+    public Boolean checkImmunityState(String name) {
+        switch (name) {
+            case "GHOST_BLINKY":
+                return blinky.getImmunityState();
+            case "GHOST_CLYDE":
+                return clyde.getImmunityState();
+            case "GHOST_INKY":
+                return inky.getImmunityState();
+            case "GHOST_PINKY":
+                return pinky.getImmunityState();
+        }
+        return null;
+    }
+    
+    public void eatGhost(String name) {
+        switch (name) {
+            case "GHOST_BLINKY":
+                blinky.spawn();
+                blinky.setImmunityState(true);
+                break;
+            case "GHOST_CLYDE":
+                clyde.spawn();
+                clyde.setImmunityState(true);
+                break;
+            case "GHOST_INKY":
+                inky.spawn();
+                inky.setImmunityState(true);
+                break;
+            case "GHOST_PINKY":
+                pinky.spawn();
+                pinky.setImmunityState(true);
                 break;
         }
     }
