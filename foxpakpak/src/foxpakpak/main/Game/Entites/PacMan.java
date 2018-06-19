@@ -218,4 +218,5 @@ public class PacMan extends Entite implements KeyListener {
     public String getTypeObjet() {
         return "PACMAN";
     }
+    
 }

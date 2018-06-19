@@ -9,6 +9,7 @@ import static foxpakpak.main.Game.Menus.*;
 
 import foxpakpak.main.Game.Entites.*;
 import foxpakpak.main.Game.Level.Level;
+import foxpakpak.main.AudioThread;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -29,13 +30,14 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     private int action; // Action a effectuer dans le menu principal
     private boolean newGame;
     
-    private Level level = new Level();
+    private Level level;
     private PacMan player;
-
+    
     private Ghost blinky;
     private Ghost pinky;
     private Ghost inky;
     private Ghost clyde;
+    
     /**
      * Constructeur du jeu
      * @param width : la largeur du jeu
@@ -60,7 +62,10 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
         this.blinky = new Ghost(this,"Sprites/Ghosts/Blinky", 255, 100);
         this.pinky = new Ghost(this,"Sprites/Ghosts/Pinky", 200, 100);
         this.inky = new Ghost(this,"Sprites/Ghosts/Inky", 150, 100);
-        this.clyde = new Ghost(this,"Sprites/Ghosts/Clyde", 100, 100);
+        this.clyde = new Ghost(this,"Sprites/Ghosts/Clyde", 100, 100);    
+        AudioThread mySound = new AudioThread("Music/background_music");
+        Thread t = new Thread(mySound);
+        t.start();
     }
 
     /**
@@ -72,7 +77,6 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
         /* On affiche le curseur */
         Cursor cursor=Cursor.getDefaultCursor();
         this.setCursor(cursor);
-        
         switch (menu) {
             case PRINCIPAL :
                 int xCoord;
@@ -163,7 +167,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
                     //this.ajouter(clyde);
                     this.ajouter(player);
                     this.ajouteEcouteurClavier(player);
-                    this.level.generateLevel(this, "res\\Niveaux\\niveau1.txt");
+                    this.level.generateLevel(this, "res\\Levels\\lvl_1.txt");
                     newGame = false;
                 }
                 
