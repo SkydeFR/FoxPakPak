@@ -10,6 +10,7 @@ import foxpakpak.main.Game.Consumables.Consommable;
 import foxpakpak.main.Game.Consumables.Dot;
 import foxpakpak.main.Game.Consumables.Fruit;
 import foxpakpak.main.Game.Consumables.SuperDot;
+import foxpakpak.main.Game.Level.Cases.Case;
 import foxpakpak.main.Game.Level.Cases.Sol;
 import foxpakpak.main.Game.Level.Cases.Mur;
 import foxpakpak.main.Game.Level.Cases.TeleporteurDroit;
@@ -27,9 +28,16 @@ import java.util.Scanner;
 public class Level {
     
     private ArrayList<Consommable> consumables;
-    private ArrayList<Character> characters;
+    private int nbConsumables;
+    private ArrayList<Case> cases;
+    
+    public Level() {
+        this.nbConsumables = 0;
+        this.cases = new ArrayList<>();
+    }
     
     public void generateLevel(Jeu g, String filePath) {
+        nbConsumables = 0;
         try {
             Scanner fichier = new Scanner(new File(filePath));
             String ligne;
@@ -43,27 +51,38 @@ public class Level {
                         
                         /* CASES */
                         case 'M':
-                            g.ajouter(new Mur(g, "Sprites/Cases/Mur", x*32, y*32));
+                            Mur mur = new Mur(g, "Sprites/Cases/Mur", x*32, y*32);
+                            cases.add(mur);
+                            g.ajouter(mur);
                             break;
                         case 'S':
-                            g.ajouter(new Sol(g, "Sprites/Cases/Sol", x*32, y*32));
+                            Sol sol = new Sol(g, "Sprites/Cases/Sol", x*32, y*32);
+                            cases.add(sol);
+                            g.ajouter(sol);
                             break;
 
                         case 'R':
-                            g.ajouter(new TeleporteurDroit(g, "Sprites/Cases/Teleporteur", x*32, y*32));
+                            TeleporteurDroit teleporteurDroit = new TeleporteurDroit(g, "Sprites/Cases/Teleporteur", x*32, y*32);
+                            cases.add(teleporteurDroit);
+                            g.ajouter(teleporteurDroit);
                             break;
                         case 'L':
-                            g.ajouter(new TeleporteurGauche(g, "Sprites/Cases/Teleporteur", x*32, y*32));
+                            TeleporteurGauche teleporteurGauche = new TeleporteurGauche(g, "Sprites/Cases/Teleporteur", x*32, y*32);
+                            cases.add(teleporteurGauche);
+                            g.ajouter(teleporteurGauche);
                             break;
                             
                         /* CONSOMMABLES */
                         case 'X':
+                            nbConsumables++;
                             g.ajouter(new Dot(g, "Sprites/Consumables/Dot", x*32+14, y*32+14));
                             break;
                         case 'D':
+                            nbConsumables++;
                             g.ajouter(new SuperDot(g, "Sprites/Consumables/SuperDot", x*32+12, y*32+12));
                             break;
                         case 'F':
+                            nbConsumables++;
                             g.ajouter(new Fruit(g, "Sprites/Consumables/Fruit", x*32+10, y*32+10));
                             break;
                     }
@@ -75,6 +94,14 @@ public class Level {
             System.out.println("Aucun fichier " + filePath + " n'a été trouvé");
             System.out.println(ex);
         }
+    }
+    
+    public int getNbConsumables() {
+        return nbConsumables;
+    }
+    
+    public ArrayList<Case> getCases() {
+        return cases;
     }
     
 }

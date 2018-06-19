@@ -41,5 +41,12 @@ public class Ghost extends Entite {
         return reborn;
     }
     
+    @Override
+    public void spawn() {
+        setDirection(AUCUNE);
+        deplacerXY(xSpawn-posGauche(), ySpawn-posHaute());
+        this.setReborn(true);
+        this.setImmunityState(true);
+    }
     
 }
