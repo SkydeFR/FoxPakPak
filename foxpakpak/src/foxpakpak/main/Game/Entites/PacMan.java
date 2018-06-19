@@ -271,6 +271,18 @@ public class PacMan extends Entite implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch(e.getKeyCode())
         {
+            //TEMPORAIRE POUR TESTER LES NIVEAUX
+            case KeyEvent.VK_A:
+                lvl++;
+
+                //Si on a fini les 3 premiers niveaux alors on a gagné
+                if (lvl == 4) {
+                    win = true;
+                } else {
+                    g.newLevel(lvl);
+                    nbConsumables = g.getNbConsumables();
+                }
+                break;
             case KeyEvent.VK_LEFT:
                 setDirection(Direction.GAUCHE);
                 dA = Direction.GAUCHE;
