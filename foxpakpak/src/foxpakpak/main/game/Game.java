@@ -58,7 +58,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     @Override
     protected void creeObjets() {
         this.level = new Level();
-        this.player = new PacMan(this,"Sprites/PacMan/PacMan_d1", 32+1, 32*4+6);
+        this.player = new PacMan(this,"Sprites/PacMan/normal/PacMan_d1", 32+1, 32*4+6);
         this.blinky = new Ghost_Blinky(this,"Sprites/Ghosts/Blinky", 32*15+1, 32*12);
         this.pinky = new Ghost_Pinky(this,"Sprites/Ghosts/Pinky", 32*15+1, 32*13+9);
         this.inky = new Ghost_Inky(this,"Sprites/Ghosts/Inky", 32*15+1, 32*13+9+18);
