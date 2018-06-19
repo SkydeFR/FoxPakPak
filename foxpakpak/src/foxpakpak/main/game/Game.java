@@ -8,7 +8,7 @@ package foxpakpak.main.Game;
 import static foxpakpak.main.Game.Menus.*;
 
 import foxpakpak.main.Game.Entites.*;
-import foxpakpak.main.Game.Level.Level;
+import foxpakpak.main.game.Level.Level;
 import foxpakpak.main.AudioThread;
 import foxpakpak.main.Game.Level.Cases.Case;
 
