@@ -129,11 +129,16 @@ public class PacMan extends Entite implements KeyListener {
     public void evoluer(long dt) {
         if (nbConsumables == -1) {
             this.nbConsumables = g.getNbConsumables();
-        }
-        if (nbConsumables <= 0) {
+        } else if (nbConsumables <= 0) {
             lvl++;
-            g.newLevel(lvl);
-            nbConsumables = g.getNbConsumables();
+            
+            //Si on a fini les 3 premiers niveaux alors on a gagné
+            if (lvl == 4) {
+                win = true;
+            } else {
+                g.newLevel(lvl);
+                nbConsumables = g.getNbConsumables();
+            }
         }
         
         tSprite += dt;

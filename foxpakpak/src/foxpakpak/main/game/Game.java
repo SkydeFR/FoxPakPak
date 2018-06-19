@@ -314,7 +314,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
     }
 
     /**
-     * Fonction appelee lorsque pacman finit le niveau
+     * Fonction appelee lorsque pacman finit les 3 premiers niveaux !
      */
     @Override
     protected void gagne() {
