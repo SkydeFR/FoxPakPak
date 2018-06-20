@@ -55,7 +55,6 @@ public class PacMan extends Entite implements KeyListener {
             g.supprimer(o);
             score += o.getScorePts();
             nbConsumables--;
-            System.out.println("Consommables restants : "+nbConsumables);
         }
     }
 
