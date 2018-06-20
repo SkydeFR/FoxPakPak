@@ -224,6 +224,7 @@ public class Game extends iut.Jeu implements MouseListener, MouseMotionListener 
         clyde.spawn();
         inky.spawn();
         pinky.spawn();
+        this.level = new Level();
         this.level.generateLevel(this, "levels/lvl_"+level+".txt");
     }
     

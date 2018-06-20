@@ -54,6 +54,8 @@ public class PacMan extends Entite implements KeyListener {
             tmpObjet = o;
             g.supprimer(o);
             score += o.getScorePts();
+            nbConsumables--;
+            System.out.println("Consommables restants : "+nbConsumables);
         }
     }
 
@@ -96,12 +98,10 @@ public class PacMan extends Entite implements KeyListener {
                 
             case "DOT":
                 mangerConsommable((Dot)o);
-                nbConsumables--;
                 break;
                 
             case "SUPERDOT":
                 mangerConsommable((SuperDot)o);
-                nbConsumables--;
                 setVitesse(3);
                 superDot = true;
                 tSuperDot = 10000;
@@ -113,7 +113,6 @@ public class PacMan extends Entite implements KeyListener {
                 
             case "FRUIT":
                 mangerConsommable((Fruit)o);
-                nbConsumables--;
                 break;
 
         }
@@ -125,13 +124,14 @@ public class PacMan extends Entite implements KeyListener {
             this.nbConsumables = g.getNbConsumables();
         } else if (nbConsumables <= 0) {
             lvl++;
+            setSuperDot(false);
             
             //Si on a fini les 3 premiers niveaux alors on a gagné
-            if (lvl == 4) {
-                win = true;
-            } else {
+            if (lvl < 4) {
                 g.newLevel(lvl);
-                nbConsumables = g.getNbConsumables();
+                nbConsumables = -1;
+            } else {
+                win = true;
             }
         }
         
@@ -249,6 +249,10 @@ public class PacMan extends Entite implements KeyListener {
             vies--;
             spawn();
         }
+    }
+    
+    public void setSuperDot(boolean state) {
+        superDot = state;
     }
     
     public int getVie() {
