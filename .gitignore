@@ -4,3 +4,5 @@
 /foxpakpak/build/
 /foxpakpak/*.xml
 /foxpakpak/dist/
+/.idea/
+/foxpakpak/out/
