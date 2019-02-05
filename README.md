@@ -2,7 +2,7 @@
 
 ## Description
 
-Mini-jeu Pac-Man
+Mini-jeu Pac-Man.
 
 IDE : Netbeans 8.2
 
